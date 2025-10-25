@@ -6,20 +6,23 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
 }
 
 .navbar {
   background-color: #101010;
-  border-bottom: 1px solid #333;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .nav-container {
-  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -52,7 +55,7 @@ body {
 }
 
 .hamburger:hover .bar {
-  background-color: #fff;
+  background-color: #6969ff;
 }
 
 .chat-name {
@@ -79,8 +82,8 @@ body {
 
 .profile-icon:hover {
   transform: scale(1.05);
-  border-color: #6969FF;
-  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+  border-color: #6969ff;
+  box-shadow: 0 0 12px rgba(105, 105, 255, 0.4);
 }
 
 .profile-icon img {
