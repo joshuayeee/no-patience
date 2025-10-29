@@ -1,3 +1,4 @@
+// chat component scripts
 fetch("components/chat.html")
   .then((response) => response.text())
   .then((data) => {
