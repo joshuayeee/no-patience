@@ -31,5 +31,16 @@ function updateChatName(newName) {
   }
 }
 
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar-placeholder');
+  if (sidebar) {
+    if (sidebar.style.display === 'block') {
+      sidebar.style.display = 'none';
+    } else {
+      sidebar.style.display = 'block';
+    }
+  }
+}
+
 // Example usage:
 // setTimeout(() => updateChatName('NEW NAME'), 2000);
