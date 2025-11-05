@@ -9,7 +9,7 @@ fetch('components/navbar.html')
       if (hamburger) {
         hamburger.addEventListener('click', function() {
           console.log('Hamburger menu clicked!');
-          // add logic here later (sidebar shown and allows pinning chats)
+          toggleSidebar();
         });
       }
       const profile = document.getElementById('profileIcon');
@@ -32,13 +32,11 @@ function updateChatName(newName) {
 }
 
 function toggleSidebar() {
-  const sidebar = document.getElementById('sidebar-placeholder');
-  if (sidebar) {
-    if (sidebar.style.display === 'block') {
-      sidebar.style.display = 'none';
-    } else {
-      sidebar.style.display = 'block';
-    }
+  const sidebar = document.querySelector('.sidebar');
+  const overlay = document.querySelector('.sidebar-overlay');
+  if (sidebar && overlay) {
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('active');
   }
 }
 
