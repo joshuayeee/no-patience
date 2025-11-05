@@ -1,1 +1,31 @@
-<p>Hello world!</p>
+{% extends 'no_patience/base.html' %}
+
+{% block content %}
+  <p>No Patience</p>
+  <link rel="stylesheet" href="{{ STATIC_URL }}landing.css" />
+
+  <!--<!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>No Patience</title>
+      <link rel="stylesheet" href="{{ STATIC_URL }}landing.css" />
+      <link rel="stylesheet" href="{{ STATIC_URL }}navbar.css" />
+      <link rel="stylesheet" href="{{ STATIC_URL }}chat.css" />
+      <link rel="stylesheet" href="{{ STATIC_URL }}sidebar.css" />
+    </head>
+    <body>
+      <div id="navbar-placeholder"></div>
+      <div id="sidebar-placeholder"></div>
+      <div id="chat-container"></div>-->
+      <!-- allows navbar to load from components/navbar.html -->
+      <!--<script src="scripts/navbar.js"></script>-->
+      <!-- allows sidebar to load from components/sidebar.html -->
+      <!--<script src="scripts/sidebar.js"></script>-->
+      <!-- allows main chat to load from components/chat.html -->
+      <!--<script src="scripts/chat.js"></script>
+    </body>
+  </html>-->
+{% endblock content %}
+
