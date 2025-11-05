@@ -1,0 +1,29 @@
+<!-- login page -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - No Patience</title>
+    <link rel="stylesheet" href="../styles/login.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>No Patience</h2>
+      <h3>Welcome Back!</h3>
+      <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <button type="submit">Login</button>
+      </form>
+      <div class="signup-link">
+        <p>Don't have an account? <a href="/signup">Sign up</a></p>
+      </div>
+      <div class="forgot-password-link">
+        <p><a href="/forgot-password">Forgot Password?</a></p>
+    </div>
+    <script src="../scripts/login.js"></script>
+  </body>
+</html>
