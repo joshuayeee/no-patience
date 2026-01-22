@@ -1,5 +1,5 @@
 // chat component scripts
-fetch("components/chat.html")
+fetch("/chat")
   .then((response) => response.text())
   .then((data) => {
     document.getElementById("chat-container").innerHTML = data;

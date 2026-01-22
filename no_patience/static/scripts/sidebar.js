@@ -1,5 +1,5 @@
 // sidebar scripts
-fetch('components/sidebar.html?v=' + Date.now())
+fetch('/sidebar')// + Date.now())
   .then(response => response.text())
   .then(data => {
     console.log('Sidebar HTML loaded:', data.length, 'characters');

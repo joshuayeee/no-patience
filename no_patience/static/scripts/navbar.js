@@ -1,5 +1,5 @@
 // navbar scripts
-fetch('components/navbar.html')
+fetch('/navbar')
   .then(response => response.text())
   .then(data => {
     document.getElementById('navbar-placeholder').innerHTML = data;

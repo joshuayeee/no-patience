@@ -33,6 +33,11 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # My apps.
     'no_patience',
+    'accounts',
+
+    # Third party apps.
+    'django_bootstrap5',
+
     # Default django apps.
     'django.contrib.admin',
     'django.contrib.auth',
@@ -124,3 +129,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# My settings.
+LOGIN_REDIRECT_URL = 'no_patience:index'
