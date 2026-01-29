@@ -1,0 +1,52 @@
+ID,Category,AnswerType,AB133SurveyQuestion_REF_Number
+8,Direct Patient Care (including telehealth),Radio List,16
+9,Training,Radio List,16
+10,Research,Radio List,16
+11,Administration,Radio List,16
+12,Other,Radio List,16
+13,Percentage (%) of patient care hours spent on telehealth,String Input,16
+19,Zip,String Input,17
+27,Zip,String Input,19
+36,,Radio List,7
+38,,Radio List,9
+39,,Radio List,10
+40,,Checkbox List,11
+41,American Board of Allergy and Immunology,Checkbox List,12
+42,American Board of Anesthesiology,Checkbox List,12
+43,American Board of Colon and Rectal Surgery,Checkbox List,12
+44,American Board of Dermatology,Checkbox List,12
+45,American Board of Emergency Medicine,Checkbox List,12
+46,American Board of Facial Plastic & Reconstructive Surgery,Checkbox List,12
+47,American Board of Family Medicine,Checkbox List,12
+48,American Board of Internal Medicine,Checkbox List,12
+49,American Board of Medical Genetics and Genomics,Checkbox List,12
+50,American Board of Neurological Surgery,Checkbox List,12
+51,American Board of Nuclear Medicine,Checkbox List,12
+52,American Board of Obstetrics and Gynecology,Checkbox List,12
+53,American Board of Ophthalmology,Checkbox List,12
+54,American Board of Orthopaedic Surgery,Checkbox List,12
+55,American Board of Otolaryngology,Checkbox List,12
+56,American Board of Pain Medicine,Checkbox List,12
+57,American Board of Pathology,Checkbox List,12
+58,American Board of Pediatrics,Checkbox List,12
+59,American Board of Physical Medicine and Rehabilitation,Checkbox List,12
+60,American Board of Plastic Surgery,Checkbox List,12
+61,American Board of Preventive Medicine,Checkbox List,12
+62,American Board of Psychiatry and Neurology,Checkbox List,12
+63,American Board of Radiology,Checkbox List,12
+64,American Board of Sleep Medicine,Checkbox List,12
+65,American Board of Spine Surgery,Checkbox List,12
+66,American Board of Surgery,Checkbox List,12
+67,American Board of Thoracic Surgery,Checkbox List,12
+68,American Board of Urology,Checkbox List,12
+69,Other,Checkbox List,12
+89,,Radio List,14
+93,,Checkbox List,22
+96,,Radio List,25
+101,,Checkbox List,1
+102,,Checkbox List,2
+103,Asian,Checkbox List,2
+104,,Checkbox List,2
+105,Native Hawaiian or other Pacific Islander,Checkbox List,2
+106,,Checkbox List,2
+107,,Radio List,16

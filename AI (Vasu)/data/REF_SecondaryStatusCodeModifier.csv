@@ -1,0 +1,41 @@
+SecondaryStatusModifierCode,ShortDescription,LongDescription
+10,INACTIVE-LICENSE MISDEMEANOR CONVICTION,Licensee was convicted of a misdemeanor and is currently incarcerated. No practice is permitted.
+104,AUTOMATIC SUSPENSION BPC 2232.5,License is suspended following a felony conviction under Business and Professions Code section 2232.5. No practice is allowed while the license is suspended.
+38,VOLUNTARY LIMITATIONS ON PRACTICE,Licensee has signed an agreement in which licensee will limit his or her practice in a manner prescribed by the reviewing physician.
+44,Petition to Revoke Probation Filed,"Petition to Revoke Probation Filed: A formal, public charge by the Board alleging a physician violated a term or condition of probation which has been referred to the Attorney General's Office for prosecution. Practice is permitted unless otherwise specified."
+45,Acc & Petition to Revoke Probation Filed,"Accusation and Petition to Revoke Probation Filed: A formal, public charge by the Board alleging the physician violated the Medical Practice Act and violated a term or condition of probation. This is the result of a fully investigated complaint that has been referred to the Attorney General's Office for prosecution. Practice is permitted unless otherwise specified."
+46,LICENSING PLR ISSUED(NON DISCIPLINARY),This is an administrative action taken by the Board at the time of licensure.
+47,CITATION RESOLVED,A citation and/or fine has been issued for a minor violation(s) of the law. This is not considered disciplinary action. This matter has been resolved.
+48,PUBLIC REPRIMAND,Licensee was reprimanded for a minor violation(s) of the law. This is considered disciplinary action.
+49,CITATION ISSUED,A citation and/or fine has been issued for a minor violation(s) of the law. This is not considered disciplinary action under California law but is an administrative action.
+50,ACCUSATION FILED,"A formal, public charge by the Board alleging a physician violated the Medical Practice Act. This is the result of a fully investigated complaint that has been referred to the Attorney General's Office for prosecution. Practice is permitted unless otherwise specified."
+51,Decision Pending Effective Date,"A Decision has been ordered by the Board, however, the effective date is pending. For more information, see the Public Record Actions section below."
+52,REVOKED,License has been revoked as a result of disciplinary action rendered by the Board.  No practice is permitted.
+53,PROBATION - LICENSEE PLACED ON PROBATION,Probation is the result of disciplinary action.  Probation is ordered for a specified period of time during which the physician must comply with specified terms and conditions and report to a Board probation monitor.  Practice is permitted unless otherwise specified.  Probation has not been completed.
+54,SUSPENDED,Licensee has been suspended. No practice is permitted.
+55,Suspended - Pursuant to B&P Code 494.5,License has been suspended pursuant to Business and Professions Code section 494.5. No practice is permitted. No public document is available.
+56,OTHER DISCIPLINARY DECISION,Other disciplinary action. Contact the Central File Room for documents.
+57,SURRENDER OF LICENSE,Licensee has surrendered his or her license to resolve a disciplinary action.  No practice is permitted.
+58,STAY ORDR ISSUED STOP EXEC. OF DECISION,The Board's decision has been stayed (put on hold) by Board pending its reconsideration or stayed by court pending judicial review.
+59,IF CERTAIN SPEC COND ARE MET  PROB BEGIN,Disciplinary decision rendered by the Board has a condition(s) that must be met prior to probation commencing as outlined in the decision. No practice is permitted until specified condition(s) are met.
+60,PROB/SUSP-PROB INCLUDES ACTUAL SUSP,Disciplinary decision rendered by the Board includes a period of probation and actual suspension as outlined in the decision. No practice is permitted while license is suspended. Probation has not been completed.
+61,NON-COMPLETION OF PROBATION,Non-completion of probation.
+62,DECISION - BOARD DECISION SET ASIDE,The Board's decision to impose discipline has been stayed (put on hold) by Board pending its reconsideration or stayed by court pending judicial review.
+63,PRACT TEMP RESTR/SUSP BY ADMIN LAW JUDGE,License's practice has been temporarily restricted or suspended by a court order. Limited or no practice allowed while suspension is in place.
+64,PRACT TEMP RESTR OR SUSP BY COURT JUDGE,Licensee's practice has been temporarily restricted or suspended by a court order. Limited or no practice allowed while suspension is in place.
+65,AUTOMATIC SUSPENSION ORDER,Licensee suspended during incarceration following a felony conviction. No practice is allowed while the license is suspended.
+66,Court Order,Licensee's practice has been temporarily restricted or limited pursuant to a Court Order.
+67,PC23 ORDER,Licensee's practice has been temporarily restricted or limited pursuant to a court order.
+68,SUSP BY ANOTHER STATE OR FED GOVERNMENT,License suspended or revoked by another state or the federal government.
+70,LIMITATIONS ON PRACTICE,Limitations have been placed on the physician's practice.
+71,PROBATION COMPLETED,The licensee's period of probation has been completed.
+76,MISDEMEANOR CONVICTION,Licensee was convicted of a misdemeanor.
+77,FELONY CONVICTION,Licensee was convicted of a felony.
+78,Admin Action by Other State/Fed Gov't,Administrative Action Taken by Other State or Federal Government
+79,MALPRACTICE JUDGMENT,A malpractice judgment has been rendered against the licensee by a civil court.
+80,HOSPITAL DISCIPLINE PER B&P CDE SECT 805,The action taken by the healthcare facility against the physician's staff privileges to provide healthcare services at this facility was for a medical disciplinary cause or reason.
+81,ARBITRATION AWARD,A malpractice arbitration award has been rendered against the licensee by a neutral third party arbitrator.
+82,MALPRACTICE SETTLEMENTS,The licensee has agreed to resolve malpractice claims.
+83,PROBATIONARY LICENSE,License issued on a probationary basis subject to terms and conditions.  Practice is permitted unless otherwise specified.
+9,INACTIVE,Licensee is required to pay the full renewal fee but is exempt from complying with the continuing medical education requirements. No practice is permitted.
+91,PRIOR PROBATION COMPLETED,The licensee's period of probation has been completed.

@@ -1,0 +1,14 @@
+Number,Title,Subtitle
+1,Ethnicity,"Are you Hispanic, Latino/a, or of Spanish origin?  Select all that apply."
+10,Primary Area of Practice,Which specialty best describes your primary area of practice?
+11,Secondary Area of Practice,Which additional specialties are within your secondary area of practice?
+12,ABMS Certifications,Which American Board of Medical Specialties (ABMS) Board Certifications do you have:
+14,Employment Status,What is your current employment status?
+16,Practice Activities,Estimate the average number of hours per week spent on the following activities:
+17,Primary Practice Location,What is the address of your primary practice location?
+19,Secondary Practice Location,What is the address of your secondary practice location?
+2,Race,With which race(s) do you identify?  Select all that apply.
+22,Language Fluency,Which of the following languages do you speak fluently/well enough to provide direct services to clients?   Select all that apply.
+25,Gender Identity,How do you currently describe yourself?
+7,Current Training Status,What is your current training status?
+9,Postgraduate Training Years,How many years of Postgraduate Training have you completed?

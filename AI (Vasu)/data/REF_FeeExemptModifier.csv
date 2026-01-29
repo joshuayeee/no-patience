@@ -1,0 +1,5 @@
+FeeExemptModifierCode,ShortDescription,LongDescription
+DIS,Disabled,Disabled status means a physician has demonstrated to the Board the inability to practice medicine due to a disability and requested a waiver of the renewal fee. A physician on disabled status cannot practice in the State of California.
+MIL,Military,Practice is limited to military service including military dependents.
+RETI,Retired,License is in retired status and the licensee is exempt from payment of the renewal fee. No practice is permitted.
+VOL,Voluntary Service,A voluntary service physician licensee whose initial and/or renewal license fee has been waived pursuant to Business and Professions Code sections 2083 and 2442 must comply with the continuing medical education (CME) requirements.

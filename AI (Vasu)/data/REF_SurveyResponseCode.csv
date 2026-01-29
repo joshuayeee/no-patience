@@ -1,0 +1,452 @@
+SurveyResponseCode,Description
+00RETIREDNO,No
+00RETIREDYES,Yes
+01AD01-09,Administration - 1-9 Hours
+01AD10-19,Administration - 10-19 Hours
+01AD20-29,Administration - 20-29 Hours
+01AD30-39,Administration - 30-39 Hours
+01AD40PLUS,Administration - 40+ Hours
+01ADNONE,Administration - None
+01OT01-09,Other - 1-9 Hours
+01OT10-19,Other - 10-19 Hours
+01OT20-29,Other - 20-29 Hours
+01OT30-39,Other - 30-39 Hours
+01OT40PLUS,Other - 40+ Hours
+01OTNONE,Other - None
+01PC01-09,Patient Care - 1-9 Hours
+01PC10-19,Patient Care - 10-19 Hours
+01PC20-29,Patient Care - 20-29 Hours
+01PC30-39,Patient Care - 30-39 Hours
+01PC40PLUS,Patient Care - 40+ Hours
+01PCNONE,Patient Care - None
+01RE01-09,Research - 1-9 Hours
+01RE10-19,Research - 10-19 Hours
+01RE20-29,Research - 20-29 Hours
+01RE30-39,Research - 30-39 Hours
+01RE40PLUS,Research - 40+ Hours
+01RENONE,Research - None
+01TE01-09,Teaching - 1-9 Hours
+01TE10-19,Teaching - 10-19 Hours
+01TE20-29,Teaching - 20-29 Hours
+01TE30-39,Teaching - 30-39 Hours
+01TE40PLUS,Teaching - 40+ Hours
+01TENONE,Teaching - None
+01TM01-09,Telemedicine - 1-9 Hours
+01TM10-19,Telemedicine - 10-19 Hours
+01TM20-29,Telemedicine - 20-29 Hours
+01TM30-39,Telemedicine - 30-39 Hours
+01TM40PLUS,Telemedicine - 40+ Hours
+01TMNONE,Telemedicine - None
+03TRAINFEL,Fellow
+03TRAINNOT,Not in Training
+03TRAINRES,Residency
+04aADDMED,AOA - Addictive Medicine
+04aAEROMED1,Aerospace Medicine - Primary
+04aAEROMED2,Aerospace Medicine - Secondary
+04aALLIMM,AOA - Allergy and Immunology
+04aALRGYIMM1,Allergy and Immunology - Primary
+04aALRGYIMM2,Allergy and Immunology - Secondary
+04aANESTH,AOA - Anesthesiology
+04aANESTH1,Anesthesiology - Primary
+04aANESTH2,Anesthesiology - Secondary
+04aCARDIO1,Cardiology - Primary
+04aCARDIO2,Cardiology - Secondary
+04aCOLONREC1,Colon and Rectal Surgery - Primary
+04aCOLONREC2,Colon and Rectal Surgery - Secondary
+04aCOMPALT1,Complementary and Alternative Medicine - Primary
+04aCOMPALT2,Complementary and Alternative Medicine - Secondary
+04aCORRMED,AOA - Correctional Medicine
+04aCOSMSURG1,Cosmetic Surgery - Primary
+04aCOSMSURG2,Cosmetic Surgery - Secondary
+04aCRITCARE1,Critical Care  - Primary
+04aCRITCARE2,Critical Care  - Secondary
+04aDERM,AOA - Dermatology
+04aDERM1,Dermatology - Primary
+04aDERM2,Dermatology - Secondary
+04aEMERGMED1,Emergency Medicine - Primary
+04aEMERGMED2,Emergency Medicine - Secondary
+04aEMMED,AOA - Emergency Medicine
+04aENDOCRIN1,Endocrinology - Primary
+04aENDOCRIN2,Endocrinology - Secondary
+04aEPILEPSY1,Epilepsy - Primary
+04aEPILEPSY2,Epilepsy - Secondary
+04aFACPLARE1,"Facial, Plastic and Reconstructive Surgery - Primary"
+04aFACPLARE2,"Facial, Plastic and Reconstructive Surgery - Secondary"
+04aFAMMED1,Family Medicine - Primary
+04aFAMMED2,Family Medicine - Secondary
+04aFAMPHY,AOA - Family Physicians
+04aGASTRO1,Gastroenterology - Primary
+04aGASTRO2,Gastroenterology - Secondary
+04aGENPRAC1,General Practice - Primary
+04aGENPRAC2,General Practice - Secondary
+04aGENSURG1,General Surgery - Primary
+04aGENSURG2,General Surgery - Secondary
+04aGERIMED1,Geriatric Medicine - Primary
+04aGERIMED2,Geriatric Medicine - Secondary
+04aHEMA1,Hematology - Primary
+04aHEMA2,Hematology - Secondary
+04aHPMED,AOA - Hospice and Pallative Medicine
+04aINFECT1,Infectious Disease - Primary
+04aINFECT2,Infectious Disease - Secondary
+04aINTMED,AOA - Internal Medicine
+04aINTMED1,Internal Medicine - Primary
+04aINTMED2,Internal Medicine - Secondary
+04aMEDGEN1,Medical Genetics - Primary
+04aMEDGEN2,Medical Genetics - Secondary
+04aNEOPERIN1,Neonatal-Perinatal Medicine - Primary
+04aNEOPERIN2,Neonatal-Perinatal Medicine - Secondary
+04aNEPHR1,Nephrology - Primary
+04aNEPHR2,Nephrology - Secondary
+04aNEURMED,AOA - Neuromusculoskeletal Medicine
+04aNEURO1,Neurology - Primary
+04aNEURO2,Neurology - Secondary
+04aNEUROCHI1,Neurology with Special Qualification in Child Neurology - Primary
+04aNEUROCHI2,Neurology with Special Qualification in Child Neurology - Secondary
+04aNEURODIS1,Neurodevelopmental Disabilities - Primary
+04aNEURODIS2,Neurodevelopmental Disabilities - Secondary
+04aNEUROSUR1,Neurological Surgery - Primary
+04aNEUROSUR2,Neurological Surgery - Secondary
+04aNEURPSY,AOA - Neurology and Psychiatry
+04aNUCMED,AOA - Nuclear Medicine
+04aNUCMED1,Nuclear Medicine - Primary
+04aNUCMED2,Nuclear Medicine - Secondary
+04aOBGYN1,Obstetrics and Gynecology - Primary
+04aOBGYN2,Obstetrics and Gynecology - Secondary
+04aOBSGYN,AOA - Obstetrics and Gynecology
+04aOCCMED1,Occupational Medicine - Primary
+04aOCCMED2,Occupational Medicine - Secondary
+04aONCOLOGY1,Oncology - Primary
+04aONCOLOGY2,Oncology - Secondary
+04aOPHTHAM1,Ophthalmology - Primary
+04aOPHTHAM2,Ophthalmology - Secondary
+04aOPOT,AOA - Opthalmology and Otolaryngology
+04aORTHO,AOA - Orthopedic Surgery
+04aORTHOSUR1,Orthopedic Surgery - Primary
+04aORTHOSUR2,Orthopedic Surgery - Secondary
+04aOTHER1,Other - Not Listed - Primary
+04aOTHER2,Other - Not Listed - Secondary
+04aOTOLARYN1,Otolaryngology - Primary
+04aOTOLARYN2,Otolaryngology - Secondary
+04aPAIN,AOA - Pain Medicine
+04aPAINMED1,Pain Medicine - Primary
+04aPAINMED2,Pain Medicine - Secondary
+04aPATH1,Pathology - Primary
+04aPATH2,Pathology - Secondary
+04aPATHO,AOA - Pathology
+04aPEDI,AOA - Pediatrics
+04aPEDIATRC1,Pediatrics - Primary
+04aPEDIATRC2,Pediatrics - Secondary
+04aPHYMEDRE1,Physical Medicine and Rehabilitation - Primary
+04aPHYMEDRE2,Physical Medicine and Rehabilitation - Secondary
+04aPHYSMED,AOA - Physical Medicine and Rehabilitation
+04aPLASTSUR1,Plastic Surgery - Primary
+04aPLASTSUR2,Plastic Surgery - Secondary
+04aPREVMED,AOA - Preventative Medicine
+04aPROC,AOA - Proctology
+04aPSYCH1,Psychiatry - Primary
+04aPSYCH2,Psychiatry - Secondary
+04aPSYCHOSO1,Psychosomatic Medicine - Primary
+04aPSYCHOSO2,Psychosomatic Medicine - Secondary
+04aPUBHEALT1,Public Health and General Preventive Medicine - Primary
+04aPUBHEALT2,Public Health and General Preventive Medicine - Secondary
+04aPULMON1,Pulmonary - Primary
+04aPULMON2,Pulmonary - Secondary
+04aRADI,AOA - Radiology
+04aRADI1,Radiology - Primary
+04aRADI2,Radiology - Secondary
+04aRADONCOL1,Radiation Oncology - Primary
+04aRADONCOL2,Radiation Oncology - Secondary
+04aRADPHYSI1,Radiologic Physics - Primary
+04aRADPHYSI2,Radiologic Physics - Secondary
+04aRHEUM1,Rheumatology - Primary
+04aRHEUM2,Rheumatology - Secondary
+04aSLEEP,AOA - Sleep Medicine
+04aSLEEPMED1,Sleep Medicine - Primary
+04aSLEEPMED2,Sleep Medicine - Secondary
+04aSPINESUR1,Spine Surgery - Primary
+04aSPINESUR2,Spine Surgery - Secondary
+04aSPORTS,AOA - Sports Medicine
+04aSPORTS1,Sports Medicine - Primary
+04aSPORTS2,Sports Medicine - Secondary
+04aSURG,AOA - Surgery
+04aSURGONCO1,Surgical Oncology - Primary
+04aSURGONCO2,Surgical Oncology - Secondary
+04aTHORSURG1,Thoracic Surgery - Primary
+04aTHORSURG2,Thoracic Surgery - Secondary
+04aUHMED,AOA - Undersea and Hyperbaric Medicine
+04aUROLOGY1,Urology - Primary
+04aUROLOGY2,Urology - Secondary
+04aVASCSURG1,Vascular Surgery - Primary
+04aVASCSURG2,Vascular Surgery - Secondary
+04bABAANESTH,American Board of Anesthesiology - Anesthesiology
+04bABACCMED,American Board of Anesthesiology - Critical Care Medicine
+04bABAHPMED,American Board of Anesthesiology - Hospice and Palliative Medicine
+04bABAIAI,American Board of Allergy and Immunology - Allergy and Immunology
+04bABAPAINMD,American Board of Anesthesiology - Pain Medicine
+04bABAPEDANE,American Board of Anesthesiology - Pediatric Anesthesiology
+04bABASLEEP,American Board of Anesthesiology - Sleep Medicine
+04bABCRSCRS,American Board of Colon and Rectal Surgery - Colon and Rectal Surgery
+04bABDCLDERM,American Board of Dermatology - Clinical and Laboratory Dermatological Immunology
+04bABDDERM,American Board of Dermatology - Dermatology
+04bABDDERPTH,American Board of Dermatology - Dermatopathology
+04bABDPEDDER,American Board of Dermatology - Pediatric Dermatology
+04bABEMCCMED,American Board of Emergency Medicine - Critical Care Medicine
+04bABEMEM,American Board of Emergency Medicine - Emergency Medicine
+04bABEMEMS,American Board of Emergency Medicine - Emergency Medical Services
+04bABEMHPM,American Board of Emergency Medicine - Hospice and Palliative Medicine
+04bABEMMEDTX,American Board of Emergency Medicine - Medical Toxicology
+04bABEMPEDEM,American Board of Emergency Medicine - Pediatric Emergency Medicine
+04bABEMSPORT,American Board of Emergency Medicine - Sports Medicine
+04bABEMUHMED,American Board of Emergency Medicine - Undersea and Hyperbaric Medicine
+04bABFMAM,American Board of Family Medicine - Adolescent Medicine
+04bABFMFM,American Board of Family Medicine - Family Medicine
+04bABFMGM,American Board of Family Medicine - Geriatric Medicine
+04bABFMHPM,American Board of Family Medicine - Hospice and Palliative Medicine
+04bABFMSLEEP,American Board of Family Medicine - Sleep Medicine
+04bABFMSPORT,American Board of Family Medicine - Sports Medicine
+04bABFPRSFPR,American Board of Facial Plastic and Reconstructive Surgery - Facial Plastic and Reconstructive Surgery
+04bABIMAHFTC,American Board of Internal Medicine - Advanced Heart Failure and Transplant Cardiology
+04bABIMAM,American Board of Internal Medicine - Adolescent Medicine
+04bABIMCCE,American Board of Internal Medicine - Clinical Cardiac Electrophysiology
+04bABIMCCM,American Board of Internal Medicine - Critical Care Medicine
+04bABIMCD,American Board of Internal Medicine - Cardiovascular Disease
+04bABIMEDM,"American Board of Internal Medicine - Endocrinology, Diabetes and Metabolism"
+04bABIMGAS,American Board of Internal Medicine - Gastroenterology
+04bABIMGM,American Board of Internal Medicine - Geriatric Medicine
+04bABIMHEMA,American Board of Internal Medicine - Hematology
+04bABIMHPM,American Board of Internal Medicine - Hospice and Palliative Medicine
+04bABIMIC,American Board of Internal Medicine - Interventional Cardiology
+04bABIMID,American Board of Internal Medicine - Infectious Disease
+04bABIMIM,American Board of Internal Medicine - Internal Medicine
+04bABIMMO,American Board of Internal Medicine - Medical Oncology
+04bABIMNEPH,American Board of Internal Medicine - Nephrology
+04bABIMPD,American Board of Internal Medicine - Pulmonary Disease
+04bABIMRHEUM,American Board of Internal Medicine - Rheumatology
+04bABIMSLEEP,American Board of Internal Medicine - Sleep Medicine
+04bABIMSPORT,American Board of Internal Medicine - Sports Medicine
+04bABIMTH,American Board of Internal Medicine - Transplant Hepatology
+04bABMGCBG,American Board of Medical Genetics - Clinical Biochemical Genetics
+04bABMGCC,American Board of Medical Genetics - Clinical Cytogenetics
+04bABMGCG,American Board of Medical Genetics - Clinical Genetics (MD)
+04bABMGCMG,American Board of Medical Genetics - Clinical Molecular Genetics
+04bABMGMBG,American Board of Medical Genetics - Medical Biochemical Genetics
+04bABMGMGP,American Board of Medical Genetics - Molecular Genetic Pathology
+04bABNMNM,American Board of Nuclear Medicine - Nuclear Medicine
+04bABNSNS,American Board of Neurological Surgery - Neurological Surgery
+04bABOGCCM,American Board of Obstetrics and Gynecology - Critical Care Medicine
+04bABOGFPMRS,American Board of Obstetrics and Gynecology - Female Pelvic Medicine and Reconstructive Surgery
+04bABOGGO,American Board of Obstetrics and Gynecology - Gynecologic Oncology
+04bABOGHPM,American Board of Obstetrics and Gynecology - Hospice and Palliative Medicine
+04bABOGMFM,American Board of Obstetrics and Gynecology - Maternal and Fetal Medicine
+04bABOGOBGYN,American Board of Obstetrics and Gynecology - Obstetrics and Gynecology
+04bABOGREI,American Board of Obstetrics and Gynecology - Reproductive Endocrinology/Infertility
+04bABONEURO,American Board of Otolaryngology - Neurotology
+04bABOOPHTHA,American Board of Ophthalmology - Ophthalmology
+04bABOOTOLAR,American Board of Otolaryngology - Otolaryngology
+04bABOPO,American Board of Otolaryngology - Pediatric Otolaryngology
+04bABOPSWHN,American Board of Otolaryngology - Plastic Surgery Within Head/Neck
+04bABOSLEEP,American Board of Otolaryngology - Sleep Medicine
+04bABOSOS,American Board of Orthopaedic Surgery - Orthopaedic Surgery
+04bABOSOSM,American Board of Orthopaedic Surgery - Orthopaedic Sports Medicine
+04bABOSSOTH,American Board of Orthopaedic Surgery - Surgery of the Hand
+04bABPBBTM,American Board of Pathology - Blood Banking/Transfusion Medicine
+04bABPCI,American Board of Pathology - Clinical Informatics
+04bABPCYTO,American Board of Pathology - Cytopathology
+04bABPDERMA,American Board of Pathology - Dermatopathology
+04bABPEDAM,American Board of Pediatrics - Adolescent Medicine
+04bABPEDCAP,American Board of Pediatrics - Child Abuse Pediatrics
+04bABPEDDBP,American Board of Pediatrics - Developmental-Behavioral Pediatrics
+04bABPEDHPM,American Board of Pediatrics - Hospice and Palliative Medicine
+04bABPEDMT,American Board of Pediatrics - Medical Toxicology
+04bABPEDND,American Board of Pediatrics - Neurodevelopmental Disabilities
+04bABPEDNPM,American Board of Pediatrics - Neonatal-Perinatal Medicine
+04bABPEDPC,American Board of Pediatrics - Pediatric Cardiology
+04bABPEDPCCM,American Board of Pediatrics - Pediatric Critical Care Medicine
+04bABPEDPE,American Board of Pediatrics - Pediatric Endocrinology
+04bABPEDPED,American Board of Pediatrics - Pediatrics
+04bABPEDPEM,American Board of Pediatrics - Pediatric Emergency Medicine
+04bABPEDPG,American Board of Pediatrics - Pediatric Gastroenterology
+04bABPEDPHO,American Board of Pediatrics - Pediatric Hematology-Oncology
+04bABPEDPID,American Board of Pediatrics - Pediatric Infectious Diseases
+04bABPEDPN,American Board of Pediatrics - Pediatric Nephrology
+04bABPEDPP,American Board of Pediatrics - Pediatric Pulmonology
+04bABPEDPR,American Board of Pediatrics - Pediatric Rheumatology
+04bABPEDPTH,American Board of Pediatrics - Pediatric Transplant Hepatology
+04bABPEDSLEE,American Board of Pediatrics - Sleep Medicine
+04bABPEDSPOR,American Board of Pediatrics - Sports Medicine
+04bABPMAM,American Board of Preventive Medicine - Aerospace Medicine
+04bABPMCI,American Board of Preventive Medicine - Clinical Informatics
+04bABPMMT,American Board of Preventive Medicine - Medical Toxicology
+04bABPMOM,American Board of Preventive Medicine - Occupational Medicine
+04bABPMPAIN,American Board of Pain Medicine - Pain Medicine
+04bABPMPHGPM,American Board of Preventive Medicine - Public Health and General Preventive Medicine
+04bABPMRBIM,American Board of Physical Medicine and Rehabilitation - Brain Injury Medicine
+04bABPMRHPM,American Board of Physical Medicine and Rehabilitation - Hospice and Palliative Medicine
+04bABPMRNM,American Board of Physical Medicine and Rehabilitation - Neuromuscular Medicine
+04bABPMRPAIN,American Board of Physical Medicine and Rehabilitation - Pain Medicine
+04bABPMRPMR,American Board of Physical Medicine and Rehabilitation - Physical Medicine and Rehabilitation
+04bABPMRPRM,American Board of Physical Medicine and Rehabilitation - Pediatric Rehabilitation Medicine
+04bABPMRSCIM,American Board of Physical Medicine and Rehabilitation - Spinal Cord Injury Medicine
+04bABPMRSPOR,American Board of Physical Medicine and Rehabilitation - Sports Medicine
+04bABPMUHM,American Board of Preventive Medicine - Undersea and Hyperbaric Medicine
+04bABPNAP,American Board of Psychiatry and Neurology - Addiction Psychiatry
+04bABPNBIM,American Board of Psychiatry and Neurology - Brain Injury Medicine
+04bABPNCAP,American Board of Psychiatry and Neurology - Child and Adolescent Psychiatry
+04bABPNCN,American Board of Psychiatry and Neurology - Clinical Neurophysiology
+04bABPNEPIL,American Board of Psychiatry and Neurology - Epilepsy
+04bABPNEUROP,American Board of Pathology - Neuropathology
+04bABPNFP,American Board of Psychiatry and Neurology - Forensic Psychiatry
+04bABPNGP,American Board of Psychiatry and Neurology - Geriatric Psychiatry
+04bABPNHPM,American Board of Psychiatry and Neurology - Hospice and Palliative Medicine
+04bABPNND,American Board of Psychiatry and Neurology - Neurodevelopmental Disabilities
+04bABPNNEURO,American Board of Psychiatry and Neurology - Neurology
+04bABPNNM,American Board of Psychiatry and Neurology - Neuromuscular Medicine
+04bABPNNSQCN,American Board of Psychiatry and Neurology - Neurology with Special Qualification in Child Neurology
+04bABPNPAIN,American Board of Psychiatry and Neurology - Pain Medicine
+04bABPNPM,American Board of Psychiatry and Neurology - Psychosomatic Medicine
+04bABPNPSYCH,American Board of Psychiatry and Neurology - Psychiatry
+04bABPNSLEEP,American Board of Psychiatry and Neurology - Sleep Medicine
+04bABPNVN,American Board of Psychiatry and Neurology - Vascular Neurology
+04bABPPA,American Board of Pathology - Pathology - Anatomic
+04bABPPAPC,American Board of Pathology - Pathology - Anatomic/Pathology- Clinical
+04bABPPC,American Board of Pathology - Pathology - Clinical
+04bABPPCHEM,American Board of Pathology - Pathology - Chemical
+04bABPPFOREN,American Board of Pathology - Pathology - Forensic
+04bABPPHEMA,American Board of Pathology - Pathology - Hematology
+04bABPPMG,American Board of Pathology - Pathology - Molecular Genetic
+04bABPPMM,American Board of Pathology - Pathology - Medical Microbiology
+04bABPPPED,American Board of Pathology - Pathology - Pediatric
+04bABPSPS,American Board of Plastic Surgery - Plastic Surgery
+04bABPSPSHN,American Board of Plastic Surgery - Plastic Surgery Within Head/Neck
+04bABPSSH,American Board of Plastic Surgery - Surgery of the Hand
+04bABRDR,American Board of Radiology - Diagnostic Radiology
+04bABRHPM,American Board of Radiology - Hospice and Palliative Medicine
+04bABRMP,American Board of Radiology - Medical Physics
+04bABRNEURO,American Board of Radiology - Neuroradiology
+04bABRNR,American Board of Radiology - Nuclear Radiology
+04bABRPR,American Board of Radiology - Pediatric Radiology
+04bABRRO,American Board of Radiology - Radiation Oncology
+04bABRVIR,American Board of Radiology - Vascular and Interventional Radiology
+04bABSCGSO,American Board of Surgery - Complex General Surgical Oncology
+04bABSHAND,American Board of Surgery - Surgery of the Hand
+04bABSHPM,American Board of Surgery - Hospice and Palliative Medicine
+04bABSMSLEEP,American Board of Sleep Medicine - Sleep Medicine
+04bABSPS,American Board of Surgery - Pediatric Surgery
+04bABSSCC,American Board of Surgery - Surgical Critical Care
+04bABSSSPINE,American Board of Spine Surgery - Spine Surgery
+04bABSSURG,American Board of Surgery - Surgery
+04bABSVS,American Board of Surgery - Vascular Surgery
+04bABTSCCS,American Board of Thoracic Surgery - Congenital Cardiac Surgery
+04bABTSTCS,American Board of Thoracic Surgery - Thoracic and Cardiac Surgery
+04bABUFPMRS,American Board of Urology - Female Pelvic Medicine and Reconstructive Surgery
+04bABUPU,American Board of Urology - Pediatric Urology
+04bABUURO,American Board of Urology - Urology
+04bNONE,None
+05PGTRAIN1,1 Year
+05PGTRAIN2,2 Years
+05PGTRAIN3,3 Years
+05PGTRAIN4,4 Years
+05PGTRAIN5,5 Years
+05PGTRAIN6,6 Years
+05PGTRAIN7,7 Years
+05PGTRAIN8,8 Years
+05PGTRAIN9,9+ Years
+06AFRAMER,African American
+06AFRICAN,African
+06AKNATIVE,Alaskan Native
+06AMERINDIAN,American Indian
+06BLACK,Black
+06CAMBODIAN,Cambodian
+06CENTRAMER,Central American
+06CHINESE,Chinese
+06CUBAN,Cuban
+06DECLINE,Decline to State
+06EUROPEAN,European
+06FIJIAN,Fijian
+06FILIPINO,Filipino
+06GUAMANIAN,Guamanian
+06HAWAIIAN,Hawaiian
+06INDIAN,Indian
+06INDONESIAN,Indonesian
+06JAPANESE,Japanese
+06KOREAN,Korean
+06LAOTIAN,Laotian/Hmong
+06MALAYSIAN,Malaysian
+06MEXICAN,Mexican
+06MIDEASTERN,Middle Eastern
+06NATAMERICA,Native American
+06OTHER,Other (not listed)
+06OTHERASIAN,Other Asian
+06OTHERHISP,Other Hispanic
+06OTHERPACIS,Other Pacific Islander
+06PAKISTANI,Pakistani
+06PUERTORICO,Puerto Rican
+06SAMOAN,Samoan
+06SINGAPORE,Singaporean
+06SOUTHAMER,South American
+06TAIWANESE,Taiwanese
+06THAI,Thai
+06TONGAN,Tongan
+06VIETNAMESE,Vietnamese
+06WHITE,White
+07AFRICAN,African Languages
+07AMERSIGN,American Sign Language
+07AMHARIC,Amharic
+07ARABIC,Arabic
+07ARMENIAN,Armenian
+07CANTONESE,Cantonese
+07CROATIAN,Croatian
+07DECLINE,Decline to state
+07FIJIAN,Fijian
+07FORMOSAN,Formosan (Amis)
+07FRCREOLE,French Creole
+07FRENCH,French
+07GERMAN,German
+07GREEK,Greek
+07GUJARATI,Gujarati
+07HEBREW,Hebrew
+07HINDI,Hindi
+07HMONG,Hmong
+07HUNGARIAN,Hungarian
+07ILOCANO,Ilocano
+07INDONESIAN,Indonesian
+07ITALIAN,Italian
+07JAPANESE,Japanese
+07KOREAN,Korean
+07LAO,Lao
+07MANDARIN,Mandarin
+07MIEN,Mien
+07MON-KHMER,Mon-Khmer (Cambodian)
+07NAVAJO,Navajo
+07NONE,None
+07OTHER,Other (not listed)
+07OTHERCHIN,Other Chinese
+07OTHERNONEN,Other Non-English
+07OTHERSIGN,Other Sign Language
+07PANJABI,Panjabi (Punjabi)
+07PERSIAN,Persian (Farsi)
+07POLISH,Polish
+07PORTUGUESE,Portuguese
+07RUSSIAN,Russian
+07SAMOAN,Samoan
+07SCANDINAVI,Scandinavian Languages
+07SERBIAN,Serbian
+07SPANISH,Spanish
+07SWAHILI,Swahili
+07TAGALOG,Tagalog
+07TELUGU,Telugu
+07THAI,Thai
+07TONGA,Tonga
+07TURKISH,Turkish
+07UKRAINIAN,Ukrainian
+07URDU,Urdu
+07VIETNAMESE,Vietnamese
+07XIANG,Xiang Chinese
+07YIDDISH,Yiddish
+07YORUBA,Yoruba
+08CULTURENO,Cultural Background - No
+08CULTUREYES,Cultural Background - Yes
+08FOREIGNNO,Foreign Language Proficiency - No
+08FOREIGNYES,Foreign Language Proficiency - Yes
+08GENDERNO,Gender - No
+08GENDERYES,Gender - Yes

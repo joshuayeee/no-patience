@@ -1,0 +1,13 @@
+PrimaryStatusCode,ShortDescription,LongDescription
+20,Current,Licensee meets requirements for the practice of medicine in California.
+22,CurrentTemp - FamilySupport,Licensee issued a temporary 150-day license for noncompliance with a judgment or order for support. Practice is permitted until the license expiration date. Questions should be directed to the Department of Consumer Affairs' Family Support Unit at (916) 574-8018.
+31,Family Support Suspension,License suspended for noncompliance with a judgment or order for support.  No practice is permitted.  Questions should be directed to the Department of Consumer Affairs' Family Support Unit at (916) 574-8018.
+32,Family Support Denied,License denied for noncompliance with a judgment or order for support.  No practice is permitted.  Questions should be directed to the Department of Consumer Affairs' Family Support Unit at (916) 574-8018.
+45,Delinquent,License renewal fee has not been paid. No practice is permitted.
+50,Cancelled,"License has been voluntarily canceled, or the license has been expired for at least five years and has not been renewed. No practice is permitted."
+51,Retired,License is in retired status and the licensee is exempt from payment of the renewal fee. No practice is permitted.
+60,Denied Renewal,License denied for noncompliance with a judgment or order for support. No practice is permitted. Questions should be directed to the Department of Consumer Affairs' Family Support Unit at (916) 574-8018.
+62,Voluntary Surrender,Licensee has voluntarily surrendered the license and the surrender has been accepted by the Board.  No disciplinary action was involved.  No practice is permitted.
+63,Surrendered,Licensee has surrendered his or her license to resolve a disciplinary or licensing action. No practice is permitted.
+65,Revoked,License has been revoked as a result of disciplinary action rendered by the Board. No practice is permitted.
+85,Deceased,Licensee is deceased.
