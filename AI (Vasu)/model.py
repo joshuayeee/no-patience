@@ -5,11 +5,23 @@ import base64
 import os
 from google import genai
 from google.genai import types
+import csv
 
+
+# Extracts CSV data
+def extract_csv(pathname: str) -> list[str]:
+    parts = [f"---START OF CSV ${pathname} ---"]
+    with open(pathname, "r", newline = "") as csvfile:
+        csv_reader = csv.reader(csvfile)
+        for row in csv_reader:
+            str = " "
+            parts.append(str.join(row))
+
+    return parts
 
 def generate():
     client = genai.Client(
-        api_key=os.environ.get("GEMINI_API_KEY"),
+        api_key=getenv("GEMINI_API_KEY"),
     )
 
     model = "gemini-3-flash-preview"
