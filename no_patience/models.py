@@ -1,13 +1,26 @@
 from django.db import models
 
-# Create your models here.
-class Doctor(models.Model):
-    """Doctor that is generated"""
-    date_added = models.DateTimeField(auto_now_add=True)
+class Chat(models.Model):
+    """Chat containing messages."""
+    name = models.CharField(max_length=50)
 
-class DoctorChat(models.Model):
-    """Chat about the Doctor"""
-    my_doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.name
 
-class HomeChat(models.Model):
-    """Chat that will generate a Doctor"""
+class UserMessage(models.Model):
+    """Message sent by the user."""
+    #my_chat = models.ForeignKey()
+    text = models.TextField()
+    date_sent = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.text[:50]}..."
+
+class BotMessage(models.Model):
+    """Message sent by the bot."""
+    #my_chat = models.ForeignKey()
+    text = models.TextField()
+    date_sent = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.text[:50]}..."
