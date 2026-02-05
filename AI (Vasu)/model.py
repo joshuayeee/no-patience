@@ -6,7 +6,7 @@ import os
 from google import genai
 from google.genai import types
 import csv
-
+from pathlib import Path
 
 # Extracts CSV data
 def extract_csv(pathname: str) -> list[str]:
@@ -21,7 +21,7 @@ def extract_csv(pathname: str) -> list[str]:
 
 def generate():
     client = genai.Client(
-        api_key=getenv("GEMINI_API_KEY"),
+        api_key=os.getenv("GEMINI_API_KEY"),
     )
 
     model = "gemini-3-flash-preview"
