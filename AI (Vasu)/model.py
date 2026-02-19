@@ -5,8 +5,7 @@ tokenizer = AutoTokenizer.from_pretrained("vaishali/multitabqa-base")
 model = AutoModelForSeq2SeqLM.from_pretrained("vaishali/multitabqa-base")
 
 # Example tables
-department_df = pd.read_csv("department.csv")
-management_df = pd.read_csv("management.csv")
+VoluntaryLimitation = pd.read_csv("data/VoluntaryLimitation.csv")
 
 # Flatten tables into a model-readable string
 def linearize_table(table_name, df):
@@ -17,13 +16,14 @@ def linearize_table(table_name, df):
     ])
     return f" : {table_name} col : {cols} {rows}"
 
-question = "How many departments are led by heads who are not mentioned?"
-table_context = linearize_table("department", department_df) + linearize_table("management", management_df)
-model_input_string = question + " " + table_context
+question = "What is the effective date of the voluntary limitation that prevents lifting of equipment over 20 lbs?"
+table_context = linearize_table("Voluntary Limitation", VoluntaryLimitation)
+model_input_string = f"question: {question} table: {table_context}"
 
 inputs = tokenizer(model_input_string, return_tensors="pt")
-outputs = model.generate(**inputs)
-print(tokenizer.batch_decode(outputs, skip_special_tokens=True))
+outputs = model.generate(**inputs, max_new_tokens=50, num_beams=4)
+answer = tokenizer.decode(outputs[0], skip_special_tokens=True)
+print("Answer: ", answer)
 
 '''
 import base64
