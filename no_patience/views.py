@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import Chat
+
 def index(request):
     return render(request, 'no_patience/index.html')
 
@@ -10,4 +12,7 @@ def chat(request):
     return render(request, 'no_patience/components/chat.html')
 
 def sidebar(request):
-    return render(request, 'no_patience/components/sidebar.html')
+    """Display chats + allow creation of new chats."""
+    chats = Chat.objects.order_by('date_added')
+    context = {'chats': chats}
+    return render(request, 'no_patience/components/sidebar.html', context)

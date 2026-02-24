@@ -17,13 +17,17 @@
     <div class="sidebar-content">
       <div class="chat-history">
         <div class="history-section">
-          <div class="history-label">Today</div>
-          <div class="chat-item active">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-            </svg>
-            <span>Looking for Healthcare Provider</span>
-          </div>
+          <ul>
+            {% for chat in chats %}
+              <div class="history-label">{{chat.date_added }}</div>
+              <div class="chat-item active">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+              <span>{{ chat.name }}</span>
+              </div>
+            {% endfor %}
+          </ul>
         </div>
       </div>
     </div>
