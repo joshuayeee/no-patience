@@ -1,10 +1,10 @@
 // navbar scripts
-fetch('/navbar')
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById('navbar-placeholder').innerHTML = data;
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('/navbar')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar-placeholder').innerHTML = data;
 
-    setTimeout(() => {
       const hamburger = document.getElementById('hamburger');
       if (hamburger) {
         hamburger.addEventListener('click', function() {
@@ -19,9 +19,9 @@ fetch('/navbar')
           // add logic here later (open profile settings)
         });
       }
-    }, 0);
-  })
-  .catch(error => console.error('Error loading navbar:', error));
+    })
+    .catch(error => console.error('Error loading navbar:', error));
+});
 
 // can be implemented differently later once we are fetching from db
 function updateChatName(newName) {

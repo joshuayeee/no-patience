@@ -1,4 +1,3 @@
-/* navbar styles */
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +5,9 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, sans-serif;
 }
 
 .navbar {
@@ -70,13 +70,52 @@ body {
   padding: 0 1rem;
 }
 
+.sign-in-btn {
+  text-decoration: none;
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: white;
+  padding: 8px 16px;
+  background: #6969ff;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sign-in-btn:hover {
+  background: #5757e6;
+  border-color: #8080ff;
+  transform: translateY(-1px);
+}
+
+.sign-in-btn:active {
+  transform: translateY(0);
+}
+
+.sign-in-btn:focus-visible {
+  outline: 2px solid #8080ff;
+  outline-offset: 2px;
+}
+
+.profile-wrapper {
+  position: relative;
+}
+
 .profile-icon {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
   border: 2px solid #333;
 }
 
@@ -90,6 +129,33 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.profile-dropdown {
+  position: absolute;
+  right: 0;
+  top: 55px;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  min-width: 160px;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  z-index: 2000;
+}
+
+.profile-dropdown a {
+  color: #e0e0e0;
+  padding: 10px 14px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+.profile-dropdown a:hover {
+  background: #2a2a2a;
 }
 
 @media (max-width: 768px) {

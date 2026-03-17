@@ -1,24 +1,41 @@
-{% extends 'no_patience/base.html' %}
+{% extends "no_patience/base.html" %}
 {% load static %}
 
 {% block content %}
-  <nav class="navbar">
-    <div
-      class="nav-container"
-      onmousedown="return false;"
-      onselectstart="return false;"
-    >
-      <button class="hamburger" id="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
+<nav class="navbar">
+  <div
+    class="nav-container"
+    onmousedown="return false;"
+    onselectstart="return false;"
+  >
+    <button class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
 
-      <div class="chat-name" id="chatName">New Chat</div>
+    <div class="chat-name" id="chatName">New Chat</div>
 
+    {% if user.is_authenticated %}
+    <div class="profile-wrapper">
       <div class="profile-icon" id="profileIcon">
-        <img src="{% static 'images/profile-placeholder.png' %}" alt="User Profile" />
+        <img
+          src="{% static 'images/profile-placeholder.png' %}"
+          alt="User Profile"
+        />
+      </div>
+
+      <div class="profile-dropdown" id="profileDropdown">
+        <a href="/settings/">Settings</a>
+        <a href="/account/">Profile</a>
+        <a href="{% url 'logout' %}">Logout</a>
       </div>
     </div>
-  </nav>
+    {% else %}
+    <a href="{% url 'login' %}" class="sign-in-btn">
+      Sign In
+    </a>
+    {% endif %}
+  </div>
+</nav>
 {% endblock content %}
