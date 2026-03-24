@@ -6,7 +6,9 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
   background: linear-gradient(to bottom, #1a1a1a 0%, #1e1e1e 100%);
   min-height: 100vh;
   display: flex;
@@ -27,6 +29,44 @@ body {
   animation: slideIn 0.3s ease-out;
 }
 
+.form-step {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-step-active {
+  display: flex;
+  animation: fadeIn 0.4s ease;
+}
+
+.progress-container {
+  width: 100%;
+  height: 6px;
+  background-color: #333;
+  border-radius: 10px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background-color: #6969ff;
+  transition: width 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -38,15 +78,9 @@ body {
   }
 }
 
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
-}
-
 .signup-container h2 {
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-size: 28px;
   font-weight: 600;
   color: #ffffff;
@@ -55,16 +89,10 @@ body {
 
 .signup-container h3 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-size: 18px;
   font-weight: 400;
   color: #a0a0a0;
-}
-
-#signup-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
 }
 
 label {
@@ -87,15 +115,93 @@ input[type="password"] {
   transition: all 0.3s ease;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
+input:focus {
   border-color: #6969ff;
   background-color: #333333;
 }
 
-button[type="submit"] {
-  padding: 12px 16px;
+.profile-upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.profile-preview-wrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #6969ff;
+  overflow: hidden;
+  background-color: #2a2a2a;
+}
+
+#profile-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-secondary {
+  padding: 8px 16px;
+  background-color: transparent;
+  border: 1px solid #555;
+  color: #e0e0e0;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 90%;
+  width: 400px;
+}
+
+.cropper-wrapper {
+  width: 100%;
+  max-height: 400px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btn-prev {
+  flex: 1;
+  padding: 12px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-next,
+#submit-btn {
+  flex: 2;
+  padding: 12px;
   background-color: #6969ff;
   color: #ffffff;
   border: none;
@@ -103,19 +209,14 @@ button[type="submit"] {
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 8px;
+  transition: all 0.3s ease;
 }
 
-button[type="submit"]:hover {
+.btn-next:hover,
+#submit-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(105, 105, 255, 0.6);
   background-color: #7a7aff;
-}
-
-button[type="submit"]:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(105, 105, 255, 0.4);
 }
 
 .login-link {
@@ -125,21 +226,10 @@ button[type="submit"]:active {
   border-top: 1px solid #333;
 }
 
-.login-link p {
-  font-size: 14px;
-  color: #a0a0a0;
-}
-
 .login-link a {
   color: #6969ff;
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.login-link a:hover {
-  color: #8989ff;
-  text-decoration: underline;
 }
 
 select#location {
@@ -149,24 +239,10 @@ select#location {
   border-radius: 8px;
   background-color: #2a2a2a;
   color: #e0e0e0;
-  outline: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23e0e0e0' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 16px center;
-  padding-right: 40px;
-}
-
-select#location:focus {
-  border-color: #6969ff;
-  background-color: #333333;
-}
-
-select#location option {
-  background-color: #2a2a2a;
-  color: #e0e0e0;
 }
 
 .error-message {
@@ -177,16 +253,20 @@ select#location option {
   border-radius: 12px;
   font-size: 13px;
   text-align: center;
-  animation: shake 0.3s ease-out;
+  margin-bottom: 15px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 480px) {
-  .signup-container {
-    padding: 30px 24px;
-  }
-  
-  .signup-container h2 {
-    font-size: 24px;
-  }
+.step-info-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+#step-counter {
+  display: block;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 4px;
+}
+#step-title {
+  margin-top: 0;
 }
