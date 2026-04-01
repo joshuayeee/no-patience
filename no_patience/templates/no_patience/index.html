@@ -14,16 +14,23 @@
       <link rel="stylesheet" href="{% static 'css/sidebar.css' %}" />
     </head>
     <body>
-      <div id="navbar-placeholder"></div>
-      <div id="sidebar-placeholder"></div>
-      <div id="chat-container"></div>
+      <div id="navbar-placeholder">
+        {% include "no_patience/components/navbar.html" with chat_name=chat.name %}
+      </div>
+      <div id="sidebar-placeholder">
+        {% include "no_patience/components/sidebar.html" with chats=chats %}
+      </div>
+      <div id="chat-container">
+        {% include "no_patience/components/chat.html" with chat=chat user_messages=user_messages bot_messages=bot_messages %}
+      </div>
+
+
       <!-- allows navbar to load from components/navbar.html -->
-      <script src="{% static 'scripts/navbar.js' %}"></script>
+      <!--<script src="{% static 'scripts/navbar.js' %}"></script>-->
       <!-- allows sidebar to load from components/sidebar.html -->
-      <script src="{% static 'scripts/sidebar.js' %}"></script>
+      <!--<script src="{% static 'scripts/sidebar.js' %}"></script>-->
       <!-- allows main chat to load from components/chat.html -->
-      <script src="{% static 'scripts/chat.js' %}"></script>
-    </body>
+      <!--<script src="{% static 'scripts/chat.js' %}"></script>-->
   </html>
 {% endblock content %}
 

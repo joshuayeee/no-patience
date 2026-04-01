@@ -13,12 +13,25 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-
-      <div class="chat-name" id="chatName">New Chat</div>
-
+      <div class="chat-name" id="chatName">{{chat_name}}</div>
       <div class="profile-icon" id="profileIcon">
         <img src="{% static 'images/profile-placeholder.png' %}" alt="User Profile" />
       </div>
     </div>
   </nav>
+
+  <script>
+    const hamburger = document.getElementById("hamburger")
+    hamburger.addEventListener('click', toggleSidebar)
+    
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.sidebar');
+      const overlay = document.querySelector('.sidebar-overlay');
+      if (sidebar && overlay) {
+        sidebar.classList.toggle('open');
+        overlay.classList.toggle('active');
+      }
+    }
+  </script>
+  
 {% endblock content %}
