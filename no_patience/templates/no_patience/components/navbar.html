@@ -2,22 +2,18 @@
 {% load static %}
 
 {% block content %}
-<nav class="navbar">
-  <div
-    class="nav-container"
-    onmousedown="return false;"
-    onselectstart="return false;"
-  >
-    <button class="hamburger" id="hamburger">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-
-    <div class="chat-name" id="chatName">New Chat</div>
-
-    {% if user.is_authenticated %}
-    <div class="profile-wrapper">
+  <nav class="navbar">
+    <div
+      class="nav-container"
+      onmousedown="return false;"
+      onselectstart="return false;"
+    >
+      <button class="hamburger" id="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <div class="chat-name" id="chatName">{{chat_name}}</div>
       <div class="profile-icon" id="profileIcon">
         <img
           src="{% static 'images/profile-placeholder.png' %}"
@@ -31,11 +27,20 @@
         <a href="{% url 'logout' %}">Logout</a>
       </div>
     </div>
-    {% else %}
-    <a href="{% url 'login' %}" class="sign-in-btn">
-      Sign In
-    </a>
-    {% endif %}
-  </div>
-</nav>
+  </nav>
+
+  <script>
+    const hamburger = document.getElementById("hamburger")
+    hamburger.addEventListener('click', toggleSidebar)
+    
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.sidebar');
+      const overlay = document.querySelector('.sidebar-overlay');
+      if (sidebar && overlay) {
+        sidebar.classList.toggle('open');
+        overlay.classList.toggle('active');
+      }
+    }
+  </script>
+  
 {% endblock content %}

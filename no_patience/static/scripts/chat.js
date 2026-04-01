@@ -3,7 +3,6 @@ fetch("/chat")
   .then((response) => response.text())
   .then((data) => {
     document.getElementById("chat-container").innerHTML = data;
-
     setTimeout(() => {
       const sendButton = document.getElementById("sendButton");
       const chatInput = document.getElementById("chatInput");
