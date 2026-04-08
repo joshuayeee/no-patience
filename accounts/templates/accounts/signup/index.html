@@ -1,44 +1,124 @@
-{% extends 'no_patience/base.html' %}
-{% load static %}
+{% extends 'no_patience/base.html' %} {% load static %} {% block content %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - No Patience</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css"
+    />
+  </head>
+  <body>
+    <div class="signup-container">
+      <h2>No Patience</h2>
 
-{% block content %}
-  <!-- signup page -->
-  <!doctype html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Sign Up - No Patience</title>
-      <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
-    </head>
-    <body>
-      <div class="signup-container">
-        <h2>No Patience</h2>
-        <h3>Create Your Account</h3>
-        <form id="signup-form">
-          <label for="first-name">First Name:</label>
-          <input type="text" id="firstname" name="firstname" required />
-          <label for="last-name">Last Name:</label>
-          <input type="text" id="lastname" name="lastname" required />
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required />
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+
+      <div class="step-info-container">
+        <strong id="step-counter">Step 1 out of 3</strong>
+        <h3 id="step-title">Create Your Account</h3>
+      </div>
+
+      <form id="signup-form">
+        <div class="form-step form-step-active" data-step="1">
           <label for="email">Email:</label>
           <input type="email" id="email" name="email" required />
+
           <label for="password">Password:</label>
           <input type="password" id="password" name="password" required />
+
           <label for="confirm-password">Confirm Password:</label>
-          <input type="password" id="confirm-password" name="confirm-password" required />
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirm-password"
+            required
+          />
+
+          <button type="button" class="btn-next">Continue</button>
+        </div>
+
+        <div class="form-step" data-step="2">
+          <label for="firstname">First Name:</label>
+          <input type="text" id="firstname" name="firstname" required />
+
+          <label for="lastname">Last Name:</label>
+          <input type="text" id="lastname" name="lastname" required />
+
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+
+          <div class="button-group">
+            <button type="button" class="btn-prev">Back</button>
+            <button type="button" class="btn-next">Continue</button>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="3">
+          <label>Profile Picture:</label>
+          <div class="profile-upload-container">
+            <div class="profile-preview-wrapper">
+              <img
+                id="profile-preview"
+                src="{% static 'images/default-avatar.png' %}"
+                alt="Preview"
+              />
+            </div>
+            <button type="button" id="upload-trigger" class="btn-secondary">
+              Choose Photo
+            </button>
+            <input
+              type="file"
+              id="profile-pic"
+              name="profile-pic"
+              accept="image/*"
+              style="display: none"
+            />
+          </div>
+
           <label for="location">State:</label>
-          <select id="location" name="location" required >
+          <select id="location" name="location" required>
             <option value="">Loading locations...</option>
           </select>
-          <button type="submit">Sign Up</button>
-        </form>
-        <div class="login-link">
-          <p>Already have an account? <a href="{% url 'accounts:login' %}">Log in</a></p>
+
+          <div class="button-group">
+            <button type="button" class="btn-prev">Back</button>
+            <button type="submit" id="submit-btn">Complete Sign Up</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="login-link">
+        <p>
+          Already have an account?
+          <a href="{% url 'accounts:login' %}">Log in</a>
+        </p>
+      </div>
+    </div>
+
+    <div id="cropper-modal" class="modal">
+      <div class="modal-content">
+        <div class="cropper-wrapper">
+          <img id="cropper-image" src="" alt="To Crop" />
+        </div>
+        <div class="button-group">
+          <button type="button" id="cancel-crop" class="btn-prev">
+            Cancel
+          </button>
+          <button type="button" id="save-crop" class="btn-next">
+            Crop & Save
+          </button>
         </div>
       </div>
-      <script src="{% static 'scripts/signup.js'%}"></script>
-    </body>
-  </html>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script src="{% static 'scripts/signup.js'%}"></script>
+  </body>
+</html>
 {% endblock content %}
