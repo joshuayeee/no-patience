@@ -13,26 +13,36 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
-      <div class="chat-name" id="chatName">{{chat_name}}</div>
-      <div class="profile-icon" id="profileIcon">
-        <img
-          src="{% static 'images/profile-placeholder.png' %}"
-          alt="User Profile"
-        />
-      </div>
 
-      <div class="profile-dropdown" id="profileDropdown">
-        <a href="/settings/">Settings</a>
-        <a href="/account/">Profile</a>
-        <a href="{% url 'logout' %}">Logout</a>
+      <div class="chat-name" id="chatName">{{chat_name}}</div>
+
+      {% if user.is_authenticated %}
+      <div class="profile-wrapper">
+        <div class="profile-icon" id="profileIcon">
+          <img
+            src="{% static 'images/profile-placeholder.png' %}"
+            alt="User Profile"
+          />
+        </div>
+
+        <div class="profile-dropdown" id="profileDropdown">
+          <a href="/settings/">Settings</a>
+          <a href="/account/">Profile</a>
+          <a href="{% url 'logout' %}">Logout</a>
+        </div>
       </div>
+      {% else %}
+      <a href="{% url 'login' %}" class="sign-in-btn">
+        Sign In
+      </a>
+      {% endif %}
     </div>
   </nav>
 
   <script>
     const hamburger = document.getElementById("hamburger")
     hamburger.addEventListener('click', toggleSidebar)
-    
+
     function toggleSidebar() {
       const sidebar = document.querySelector('.sidebar');
       const overlay = document.querySelector('.sidebar-overlay');
@@ -42,5 +52,5 @@
       }
     }
   </script>
-  
+
 {% endblock content %}
