@@ -1,4 +1,14 @@
 /* chat container styles */
+html {
+  background-color: #1a1a1a;
+  overscroll-behavior: none;
+}
+
+body {
+  background-color: #1a1a1a;
+  overscroll-behavior: none;
+}
+
 .chat-main {
   display: flex;
   flex-direction: column;
