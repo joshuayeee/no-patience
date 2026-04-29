@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block content %}
+
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
   <!-- login page -->
   <!DOCTYPE html>
   <html lang="en">
@@ -15,20 +20,14 @@
       <div class="login-container">
         <h2>No Patience</h2>
         <h3>Welcome Back!</h3>
-        <form id="login-form">
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required />
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required />
+        <form id="login-form" action="{% url 'accounts:login' %}" method="POST">
+          {% csrf_token %}
+          {{ form.as_div }}
           <button type="submit">Login</button>
         </form>
         <div class="signup-link">
-          <p>Don't have an account? <a href="{% url 'accounts:signup' %}">Sign up</a></p>
+          <p>Don't have an account? <a href="{% url 'accounts:register' %}">Sign Up</a></p>
         </div>
-        <div class="forgot-password-link">
-          <p><a href="{% url 'accounts:forgot' %}">Forgot Password?</a></p>
-      </div>
-      <script src="{% static 'scripts/login.js' %}"></script>
     </body>
   </html>
 {% endblock content %}

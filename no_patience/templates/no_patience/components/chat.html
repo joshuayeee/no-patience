@@ -36,7 +36,14 @@
     </div>
 
     <div class="login-disclaimer">
-      <p>Login to save chats.</p>
+      {% if user.is_authenticated %}
+        <hr />
+        <form action="{% url 'accounts:logout' %}" method='post'>
+          {% csrf_token %}
+          <button name='submit'>Log out</button>
+        </form>
+      {% endif %}
+      <!--<p>Login to save chats.</p>-->
     </div>
     
     <div class="chat-input-wrapper" id="chatInputWrapper">
@@ -50,7 +57,6 @@
     </div>
 
     <div class="disclaimer" id="disclaimer">
-      <p><a href="{% url 'accounts:login' %}">Login</a> to save your chat history.</p>
       <p>Pulse can make mistakes. Check important information.</p>
     </div>
   </main>

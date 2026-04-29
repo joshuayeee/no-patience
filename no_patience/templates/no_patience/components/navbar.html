@@ -20,24 +20,38 @@
           alt="User Profile"
         />
       </div>
-
-      <div class="profile-dropdown" id="profileDropdown">
-        <a href="/settings/">Settings</a>
-        <a href="/account/">Profile</a>
-        <a href="{% url 'logout' %}">Logout</a>
-      </div>
+        <div class="profile-dropdown" id="profileDropdown">
+          
+        </div>
     </div>
   </nav>
 
   <script>
-    const hamburger = document.getElementById("hamburger")
-    hamburger.addEventListener('click', toggleSidebar)
+    const hamburger = document.getElementById("hamburger");
+    hamburger.addEventListener('click', toggleSidebar);
     
     function toggleSidebar() {
       const sidebar = document.querySelector('.sidebar');
       const overlay = document.querySelector('.sidebar-overlay');
       if (sidebar && overlay) {
         sidebar.classList.toggle('open');
+        overlay.classList.toggle('active');
+      }
+    }
+
+    const profile = document.getElementById('profileIcon');
+    if (profile) {
+      profile.addEventListener('click', function() {
+        console.log('Profile clicked!');
+        toggleDropdown()
+      });
+    }
+    
+    function toggleDropdown() {
+      const dropdown = document.querySelector('.profile-dropdown');
+      const overlay = document.querySelector('.sidebar-overlay');
+      if (dropdown && overlay) {
+        dropdown.classList.toggle('open');
         overlay.classList.toggle('active');
       }
     }
