@@ -6,12 +6,15 @@
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <button name="submit" class="new-chat-btn" id="newChatBtn">
+      <form action="{% url 'no_patience:reload' chat_id=chat.id new_chat_query=1 %}" method="post">
+        {% csrf_token %}
+        <button name="submit" class="new-chat-btn" id="newChatBtn">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 5v14M5 12h14"/>
           </svg>
           New Chat
         </button>
+      </form>
     </div>
     
     <div class="sidebar-content">
@@ -19,13 +22,16 @@
         <div class="history-section">
           <ul>
             {% for chat in chats %}
-              <div class="history-label">{{ chat.date_added }}</div>
-              <div class="chat-item active">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                </svg>
-              <a href="{% url 'no_patience:reload' chat_id=chat.id %}">{{ chat.name }}</a>
-              </div>
+              <form action="{% url 'no_patience:reload' chat_id=chat.id new_chat_query=0 %}" method="post">
+                {% csrf_token %}
+                <div class="history-label">{{ chat.date_added }}</div>
+                <button class="chat-item active">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  </svg>
+                  {{ chat.name }}
+                </button>
+              </form>
             {% endfor %}
           </ul>
         </div>
@@ -34,5 +40,21 @@
   </div>
 
 
+  <script>
+    const overlay = document.getElementById('sidebarOverlay');
+    if (overlay) {
+      overlay.addEventListener('click', function() {
+        toggleSidebar();
+      });
+    }
 
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.sidebar');
+      const overlay = document.querySelector('.sidebar-overlay');
+      if (sidebar && overlay) {
+        sidebar.classList.toggle('open');
+        overlay.classList.toggle('active');
+      }
+    }
+  </script>
 {% endblock content %}

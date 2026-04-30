@@ -1,0 +1,33 @@
+{% extends 'no_patience/base.html' %}
+{% load static %}
+
+{% block content %}
+
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  <!-- login page -->
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Login - No Patience</title>
+      <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+    </head>
+    <body>
+      <div class="login-container">
+        <h2>No Patience</h2>
+        <h3>Welcome Back!</h3>
+        <form id="login-form" action="{% url 'accounts:login' %}" method="POST">
+          {% csrf_token %}
+          {{ form.as_div }}
+          <button type="submit">Login</button>
+        </form>
+        <div class="signup-link">
+          <p>Don't have an account? <a href="{% url 'accounts:register' %}">Sign Up</a></p>
+        </div>
+    </body>
+  </html>
+{% endblock content %}

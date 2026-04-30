@@ -1,10 +1,29 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 
-def login(request):
-    return render(request, 'accounts/login/index.html')
+def register(request):
+    """Register a new user."""
+    if request.method != 'POST':
+        # Display blank registration form.
+        form = UserCreationForm()
+    else:
+        # Process completed form
+        form = UserCreationForm(data=request.POST)
 
-def signup(request):
-    return render(request, 'accounts/signup/index.html')
+        if form.is_valid():
+            new_user = form.save()
+            return redirect('/accounts/login')
+    
+    # Display a blank or invalid form
+    context = {'form': form}
+    return render(request, 'registration/register.html', context)
 
-def forgot(request):
-    return render(request, 'accounts/forgot-password/index.html')
+#def login(request):
+    #return render(request, 'accounts/login/index.html')
+
+#def signup(request):
+    #return render(request, 'accounts/signup/index.html')
+
+#def forgot(request):
+    #return render(request, 'accounts/forgot-password/index.html')

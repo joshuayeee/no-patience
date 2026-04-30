@@ -1,0 +1,30 @@
+{% extends 'no_patience/base.html' %}
+{% load static %}
+
+{% block content %}
+  <!-- signup page -->
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Sign Up - No Patience</title>
+      <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+    </head>
+    <body>
+      <div class="signup-container">
+        <h2>No Patience</h2>
+        <h3>Create Your Account</h3>
+        <form action="{% url 'accounts:register' %}" method='post'>
+          {% csrf_token %}
+          {{ form.as_div }}
+          <button name="submit">Register</button>
+        </form>
+        <div class="login-link">
+          <p>Already have an account? <a href="{% url 'accounts:login' %}">Log in</a></p>
+        </div>
+      </div>
+      <script src="{% static 'scripts/signup.js'%}"></script>
+    </body>
+  </html>
+{% endblock content %}

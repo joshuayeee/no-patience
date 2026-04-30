@@ -37,6 +37,7 @@ INSTALLED_APPS = [
 
     # Third party apps.
     'django_bootstrap5',
+    'widget_tweaks',
 
     # Default django apps.
     'django.contrib.admin',
@@ -132,3 +133,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # My settings.
 LOGIN_REDIRECT_URL = 'no_patience:index'
+LOGOUT_REDIRECT_URL = 'accounts:login' 
+LOGIN_URL = 'accounts:login'

@@ -19,10 +19,10 @@
         {% include "no_patience/components/navbar.html" with chat_name=chat.name %}
       </div>
       <div id="sidebar-placeholder">
-        {% include "no_patience/components/sidebar.html" with chats=chats %}
+        {% include "no_patience/components/sidebar.html" with chat=chat chats=chats %}
       </div>
       <div id="chat-container">
-        {% include "no_patience/components/chat.html" with chat=chat user_messages=user_messages bot_messages=bot_messages %}
+        {% include "no_patience/components/chat.html" with chat=chat messages=messages %}
       </div>
 
 
