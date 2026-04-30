@@ -1,7 +1,12 @@
-/* landing page styles */
+@import './shared.css';
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+html,
+body {
+  background-color: var(--bg-base);
+  height: 100%;
+}
+
+#chat-container {
+  background-color: var(--bg-base);
+  min-height: 100vh;
 }
