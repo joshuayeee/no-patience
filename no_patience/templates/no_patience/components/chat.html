@@ -31,8 +31,6 @@
           </div>
         {% endif %}
       {% endfor %}
-
-
     </div>
 
     <div class="login-disclaimer">
@@ -40,7 +38,7 @@
         <hr />
         <form action="{% url 'accounts:logout' %}" method='post'>
           {% csrf_token %}
-          <button name='submit'>Log out</button>
+          <p>logged in as {{ user.username }} <button name='submit'>Log out</button></p>
         </form>
       {% endif %}
       <!--<p>Login to save chats.</p>-->
