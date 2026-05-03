@@ -5,6 +5,12 @@ from django.http import Http404
 from .models import Chat, Message
 from .forms import MessageForm
 
+import asyncio
+
+from .llm import *
+
+bot_message_text = ""
+
 @login_required
 def index(request):
     chats = Chat.objects.filter(owner=request.user).order_by("date_added")
@@ -50,6 +56,16 @@ def reload(request, chat_id, new_chat_query=0):
             new_message = message_form.save(commit=False)
             new_message.my_chat = chat
             new_message.save()
+
+            new_bot_message = Message.objects.create(
+                my_chat=chat,
+                text="",
+                sent_by_bot=True
+            )
+            bot_message_text = f"This is message number {Message.objects.count()}"
+            new_bot_message.text = bot_message_text
+            new_bot_message.save()
+            
             return redirect(f"/reload/{chat_id}/{new_chat_query}")
 
     context = {'chats': chats,
@@ -58,21 +74,70 @@ def reload(request, chat_id, new_chat_query=0):
                'message_form': message_form}
     return render(request, 'no_patience/index.html', context)
 
-"""def navbar(request, chat_id):
-    chat = Chat.objects.get(id=chat_id)
-    context = {'chat': chat}
-    return render(request, 'no_patience/components/navbar.html', context)
+"""
+def generate_response(user_question):
+    try:
+        sql_query = generate_sql(user_question)
 
-def chat(request, chat_id):
-    chat = Chat.objects.get(id=chat_id)
-    user_messages = chat.usermessage_set.order_by('-date_sent')
-    bot_messages = chat.botmessage_set.order_by('-date_sent')
-    context = {'chat': chat, 
-               'user messages': user_messages, 
-               'bot messages': bot_messages}
-    return render(request, 'no_patience/components/chat.html', context)
+        if not is_safe_sql(sql_query):
+            print("Unsafe or invalid query generated.")
 
-def sidebar(request):
-    chats = Chat.objects.order_by('date_added')
-    context = {'chats': chats}
-    return render(request, 'no_patience/components/sidebar.html', context)"""
+        print("\nGenerated SQL:")
+        print(sql_query)
+
+        columns, rows = run_query(sql_query)
+
+        print("\nRaw Result:")
+        print(rows[:5])
+
+        explanation = explain_result(user_question, columns, rows)
+
+        print("Answer:")
+        print(explanation)
+
+        bot_message_text = explanation
+
+    except errors.ClientError as e:
+        if "429" in str(e):
+            print("\n[Quota reached. retrying in 30 seconds...]")
+            time.sleep(30)
+        else:
+            raise e
+"""
+"""
+def generate():
+    print("Ask a question about physicians (type 'exit' to quit)")
+
+    while True:
+        user_question = input(">> ")
+
+        if user_question.lower() == "exit":
+            break
+
+        try:
+            sql_query = generate_sql(user_question)
+
+            if not is_safe_sql(sql_query):
+                print("Unsafe or invalid query generated.")
+                continue
+
+            print("Generated SQL:")
+            print(sql_query)
+
+            columns, rows = run_query(sql_query)
+
+            print("Raw Result:")
+            print(rows[:5])
+
+            explanation = explain_result(user_question, columns, rows)
+
+            print("Answer:")
+            print(explanation)
+
+        except errors.ClientError as e:
+            if "429" in str(e):
+                print("\n[Quota reached. Retrying in 30 seconds...]")
+                time.sleep(30)
+            else:
+                raise e
+"""
