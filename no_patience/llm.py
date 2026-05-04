@@ -214,16 +214,10 @@ def extract_sql(text):
     if "CANNOT_ANSWER" in text:
         return None
 
-    # Extract SELECT ... ;
-    match = re.search(r"(SELECT .*?;)", text, re.IGNORECASE | re.DOTALL)
-    if match:
-        return match.group(1)
+    # Remove ```sql and ```
+    text = text.replace("```sql", "").replace("```", "").strip()
 
-    # fallback: no semicolon
-    if text.lower().startswith("select"):
-        return text
-
-    return None
+    return text
 
 # Remove excess from response
 def clean_sql(sql):
@@ -245,6 +239,9 @@ Rules:
 - Only generate a valid SQL query
 - Only use the tables below
 - If unsure, return: CANNOT_ANSWER
+- Any question about "physicians" in the below prompt will require checking entries in the License table
+- If a WHERE CLAUSE is used, add an ILIKE operator
+- Unless counting, please limit selection to only 5 entries per query
 
 Schema:
 {SCHEMA}
@@ -259,6 +256,7 @@ Question:
     )
 
     try:
+        print(response.text)
         return extract_sql(response.text)
     except:
         return None
@@ -289,6 +287,8 @@ def run_query(query):
         rows = cur.fetchall()
         columns = [desc[0] for desc in cur.description]
         return columns, rows
+    except:
+        return None, None
     finally:
         cur.close()
         conn.close()
@@ -333,13 +333,16 @@ def generate():
 
             columns, rows = run_query(sql_query)
 
-            print("\nRaw Result:")
-            print(rows[:5])
+            if columns == None and rows == None:
+                print("Unable to complete request")
+            else:
+                print("\nRaw Result:")
+                print(rows[:5])
 
-            explanation = explain_result(user_question, columns, rows)
+                explanation = explain_result(user_question, columns, rows)
 
-            print("\nAnswer:")
-            print(explanation)
+                print("\nAnswer:")
+                print(explanation)
 
         except errors.ClientError as e:
             if "429" in str(e):
