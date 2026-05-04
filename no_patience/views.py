@@ -6,6 +6,8 @@ from .models import Chat, Message
 from .forms import MessageForm
 
 import asyncio
+import threading
+import time
 
 from .llm import *
 
@@ -57,15 +59,11 @@ def reload(request, chat_id, new_chat_query=0):
             new_message.my_chat = chat
             new_message.save()
 
-            new_bot_message = Message.objects.create(
-                my_chat=chat,
-                text="",
-                sent_by_bot=True
-            )
-            bot_message_text = f"This is message number {Message.objects.count()}"
-            new_bot_message.text = bot_message_text
-            new_bot_message.save()
+            thread = threading.Thread(target=generate_response, args=(new_message.text, chat,))
             
+            thread.start()
+            thread.join()
+
             return redirect(f"/reload/{chat_id}/{new_chat_query}")
 
     context = {'chats': chats,
@@ -74,8 +72,7 @@ def reload(request, chat_id, new_chat_query=0):
                'message_form': message_form}
     return render(request, 'no_patience/index.html', context)
 
-"""
-def generate_response(user_question):
+def generate_response(user_question, chat):
     try:
         sql_query = generate_sql(user_question)
 
@@ -95,7 +92,12 @@ def generate_response(user_question):
         print("Answer:")
         print(explanation)
 
-        bot_message_text = explanation
+        new_bot_message = Message.objects.create(
+                my_chat=chat,
+                text=explanation,
+                sent_by_bot=True
+        )
+        new_bot_message.save()
 
     except errors.ClientError as e:
         if "429" in str(e):
@@ -103,7 +105,7 @@ def generate_response(user_question):
             time.sleep(30)
         else:
             raise e
-"""
+
 """
 def generate():
     print("Ask a question about physicians (type 'exit' to quit)")

@@ -17,6 +17,7 @@ def get_db_connection():
         port="5432"
     )
 
+
 # Gemini client
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 MODEL = "gemini-3-flash-preview"
