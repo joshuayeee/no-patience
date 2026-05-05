@@ -14,23 +14,28 @@
         <span class="bar"></span>
       </button>
 
-      <div class="chat-name" id="chatName">{{chat_name}}</div>
-      <div class="profile-icon" id="profileIcon">
-        <img
-          src="{% static 'images/profile-placeholder.png' %}"
-          alt="User Profile"
-        />
-      </div>
+      <div class="chat-name" id="chatName">{{ chat_name }}</div>
+
+      <div class="profile-wrapper">
+        <div class="profile-icon" id="profileIcon">{{ user.username|first|upper }}</div>
         <div class="profile-dropdown" id="profileDropdown">
-          
+          <div class="dropdown-user-info">
+            <span class="dropdown-display-name">{{ user.get_full_name|default:user.username }}</span>
+            <span class="dropdown-username">@{{ user.username }}</span>
+          </div>
+          <form action="{% url 'accounts:logout' %}" method="post" class="dropdown-logout-form">
+            {% csrf_token %}
+            <button type="submit" class="dropdown-logout-btn">Log out</button>
+          </form>
         </div>
+      </div>
     </div>
   </nav>
 
   <script>
     const hamburger = document.getElementById("hamburger");
     hamburger.addEventListener('click', toggleSidebar);
-    
+
     function toggleSidebar() {
       const sidebar = document.querySelector('.sidebar');
       const overlay = document.querySelector('.sidebar-overlay');
@@ -40,22 +45,21 @@
       }
     }
 
-    const profile = document.getElementById('profileIcon');
-    if (profile) {
-      profile.addEventListener('click', function() {
-        console.log('Profile clicked!');
-        toggleDropdown()
+    const profileIcon = document.getElementById('profileIcon');
+    const profileDropdown = document.getElementById('profileDropdown');
+    const sidebarOverlay = document.querySelector('.sidebar-overlay');
+
+    if (profileIcon) {
+      profileIcon.addEventListener('click', function(e) {
+        e.stopPropagation();
+        profileDropdown.classList.toggle('open');
       });
     }
-    
-    function toggleDropdown() {
-      const dropdown = document.querySelector('.profile-dropdown');
-      const overlay = document.querySelector('.sidebar-overlay');
-      if (dropdown && overlay) {
-        dropdown.classList.toggle('open');
-        overlay.classList.toggle('active');
-      }
-    }
-  </script>
 
+    document.addEventListener('click', function(e) {
+      if (profileDropdown && !profileDropdown.contains(e.target) && e.target !== profileIcon) {
+        profileDropdown.classList.remove('open');
+      }
+    });
+  </script>
 {% endblock content %}
