@@ -4,6 +4,7 @@ from django.http import Http404
 
 from .models import Chat, Message
 from .forms import MessageForm
+from .llm import answer_question
 
 import asyncio
 import threading
@@ -73,38 +74,14 @@ def reload(request, chat_id, new_chat_query=0):
     return render(request, 'no_patience/index.html', context)
 
 def generate_response(user_question, chat):
-    try:
-        sql_query = generate_sql(user_question)
+    response_text = answer_question(user_question)
 
-        if not is_safe_sql(sql_query):
-            print("Unsafe or invalid query generated.")
-
-        print("\nGenerated SQL:")
-        print(sql_query)
-
-        columns, rows = run_query(sql_query)
-
-        print("\nRaw Result:")
-        print(rows[:5])
-
-        explanation = explain_result(user_question, columns, rows)
-
-        print("Answer:")
-        print(explanation)
-
-        new_bot_message = Message.objects.create(
-                my_chat=chat,
-                text=explanation,
-                sent_by_bot=True
-        )
-        new_bot_message.save()
-
-    except errors.ClientError as e:
-        if "429" in str(e):
-            print("\n[Quota reached. retrying in 30 seconds...]")
-            time.sleep(30)
-        else:
-            raise e
+    new_bot_message = Message.objects.create(
+        my_chat=chat,
+        text=response_text,
+        sent_by_bot=True
+    )
+    new_bot_message.save()
 
 """
 def generate():
