@@ -30,6 +30,17 @@
       {% endfor %}
     </div>
 
+    <div class="disclaimer" id="disclaimer">
+      {% if user.is_authenticated %}
+        <hr />
+        <form action ="{% url 'accounts:logout' %}" method='post'>
+          {% csrf_token %}
+          <p>Logged in as {{ user.username }} <button name='submit'>Log out</button></p>
+        </form>
+      {% endif %}
+    </div>
+      
+
     <div class="chat-input-wrapper" id="chatInputWrapper">
       <form action="{% url 'no_patience:reload' chat.id 0 %}" method='post'>
         {% csrf_token %}
