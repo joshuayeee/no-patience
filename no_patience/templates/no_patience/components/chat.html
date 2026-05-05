@@ -2,10 +2,7 @@
 {% load static %}
 {% load widget_tweaks %}
 
-
 {% block content %}
-  <!-- chat component -->
-
   <main class="chat-main">
     <div id="chatMessages" class="chat-messages-container">
       {% for message in messages %}
@@ -16,16 +13,16 @@
               <div class="message-content">
                 <span class="name-left">Pulse</span>
                 <p class="message-text">{{ message.text }}</p>
-                <span class="message-time time-left">{{ message.date_sent }}</span>
+                <span class="message-time time-left" data-utc="{{ message.date_sent|date:'c' }}">{{ message.date_sent }}</span>
               </div>
             </div>
           </div>
         {% else %}
-        <div class="message-wrapper message-right">
+          <div class="message-wrapper message-right">
             <div class="message-container">
               <div class="message-content">
                 <p class="message-text">{{ message.text }}</p>
-                <span class="message-time time-right">{{ message.date_sent}}</span>
+                <span class="message-time time-right" data-utc="{{ message.date_sent|date:'c' }}">{{ message.date_sent }}</span>
               </div>
             </div>
           </div>
@@ -33,29 +30,37 @@
       {% endfor %}
     </div>
 
-    <div class="login-disclaimer">
-      {% if user.is_authenticated %}
-        <hr />
-        <form action="{% url 'accounts:logout' %}" method='post'>
-          {% csrf_token %}
-          <p>logged in as {{ user.username }} <button name='submit'>Log out</button></p>
-        </form>
-      {% endif %}
-      <!--<p>Login to save chats.</p>-->
-    </div>
-    
     <div class="chat-input-wrapper" id="chatInputWrapper">
-      <button id="attachButton" class="chat-attach-button">+</button>
-      <form action="{% url 'no_patience:reload' chat.id 0%}" method='post'>
+      <form action="{% url 'no_patience:reload' chat.id 0 %}" method='post'>
         {% csrf_token %}
         {{ message_form.as_div }}
-        <!--<input id="chatInput" class="chat-input-field" type="text" placeholder="Type your message..." />-->
-        <button id="sendButton" class="chat-send-button">Send</button>
+        <button id="sendButton" class="chat-send-button" aria-label="Send">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
       </form>
     </div>
 
     <div class="disclaimer" id="disclaimer">
-      <p>Pulse can make mistakes. Check important information.</p>
+      <p>Pulse can make mistakes. Always verify important information.</p>
     </div>
   </main>
+
+  <script>
+    // converting utc to local
+    document.querySelectorAll('[data-utc]').forEach(function(el) {
+      var d = new Date(el.dataset.utc);
+      if (!isNaN(d)) {
+        el.textContent = d.toLocaleString([], {
+          month: 'short', day: 'numeric',
+          hour: '2-digit', minute: '2-digit'
+        });
+      }
+    });
+
+    // auto scroll to bottom
+    var msgs = document.getElementById('chatMessages');
+    if (msgs) msgs.scrollTop = msgs.scrollHeight;
+  </script>
 {% endblock content %}

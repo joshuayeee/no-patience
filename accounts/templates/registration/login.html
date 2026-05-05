@@ -2,12 +2,6 @@
 {% load static %}
 
 {% block content %}
-
-  {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-  {% endif %}
-
-  <!-- login page -->
   <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -18,16 +12,23 @@
     </head>
     <body>
       <div class="login-container">
+        <img src="{% static 'images/no-patience-logo-no-bg.png' %}" alt="No Patience" class="login-logo" />
         <h2>No Patience</h2>
-        <h3>Welcome Back!</h3>
+        <h3>Welcome back</h3>
+
+        {% if form.errors %}
+          <div class="login-errors">Your username or password didn't match. Please try again.</div>
+        {% endif %}
+
         <form id="login-form" action="{% url 'accounts:login' %}" method="POST">
           {% csrf_token %}
           {{ form.as_div }}
-          <button type="submit">Login</button>
+          <button type="submit">Sign in</button>
         </form>
         <div class="signup-link">
-          <p>Don't have an account? <a href="{% url 'accounts:register' %}">Sign Up</a></p>
+          <p>Don't have an account? <a href="{% url 'accounts:register' %}">Sign up</a></p>
         </div>
+      </div>
     </body>
   </html>
 {% endblock content %}

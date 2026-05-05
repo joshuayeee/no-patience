@@ -9,13 +9,12 @@ import re
 
 # DB connection
 def get_db_connection():
-    return psycopg2.connect(
-        dbname="template1",
-        user="postgres",
-        password=os.getenv("DB_password"),
-        host="localhost",
-        port="5432"
-    )
+    db_url = os.getenv("DATABASE_URL")
+
+    if not db_url:
+        raise ValueError("DATABASE_URL is not set")
+
+    return psycopg2.connect(db_url)
 
 
 # Gemini client
@@ -313,8 +312,24 @@ Explain the result clearly and concisely.
 
     return response
 
+def answer_question(user_question: str) -> str:
+    try:
+        sql_query = generate_sql(user_question)
+
+        if not is_safe_sql(sql_query):
+            return "Sorry, I couldn't generate a safe query."
+
+        columns, rows = run_query(sql_query)
+
+        explanation = explain_result(user_question, columns, rows)
+
+        return explanation.text
+
+    except Exception as e:
+        return f"Error: {str(e)}"
+    
 def generate():
-    print("Ask a question about physicians (type 'exit' to quit)\n")
+    print("Ask a question (type 'exit' to quit)\n")
 
     while True:
         user_question = input(">> ")
@@ -322,35 +337,10 @@ def generate():
         if user_question.lower() == "exit":
             break
 
-        try:
-            sql_query = generate_sql(user_question)
+        response = answer_question(user_question)
 
-            if not is_safe_sql(sql_query):
-                print("Unsafe or invalid query generated.")
-                continue
-
-            print("\nGenerated SQL:")
-            print(sql_query)
-
-            columns, rows = run_query(sql_query)
-
-            if columns == None and rows == None:
-                print("Unable to complete request")
-            else:
-                print("\nRaw Result:")
-                print(rows[:5])
-
-                explanation = explain_result(user_question, columns, rows)
-
-                print("\nAnswer:")
-                print(explanation)
-
-        except errors.ClientError as e:
-            if "429" in str(e):
-                print("\n[Quota reached. Retrying in 30 seconds...]")
-                time.sleep(30)
-            else:
-                raise e
+        print("\nAnswer:")
+        print(response)
 
 
 if __name__ == "__main__":

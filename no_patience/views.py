@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
+from django.db.models import Max
 
 from .models import Chat, Message
 from .forms import MessageForm
+from .llm import answer_question
 
 import asyncio
 import threading
@@ -15,12 +17,14 @@ bot_message_text = ""
 
 @login_required
 def index(request):
-    chats = Chat.objects.filter(owner=request.user).order_by("date_added")
+    chats = Chat.objects.filter(owner=request.user).annotate(
+        last_activity=Max('message__date_sent')
+    ).order_by('-last_activity', '-date_added')
     if (chats.count() > 0):
         chat = chats.first()
     else:
-        chat = Chat.objects.create(name=f"New Chat", owner=request.user)
-        chat.save()
+        chat = Chat.objects.create(name="New Chat", owner=request.user)
+        Message.objects.create(my_chat=chat, text="Hello! How can I help you today?", sent_by_bot=True)
 
     if chat.owner != request.user:
         raise Http404
@@ -39,10 +43,12 @@ def index(request):
 def reload(request, chat_id, new_chat_query=0):
     if (new_chat_query == 1):
         new_chat = Chat.objects.create(name=f"New Chat {Chat.objects.filter(owner=request.user).count() + 1}", owner=request.user)
-        new_chat.save()
+        Message.objects.create(my_chat=new_chat, text="Hello! How can I help you today?", sent_by_bot=True)
         return redirect(f"/reload/{new_chat.id}/0")
         
-    chats = Chat.objects.filter(owner=request.user).order_by("date_added")
+    chats = Chat.objects.filter(owner=request.user).annotate(
+        last_activity=Max('message__date_sent')
+    ).order_by('-last_activity', '-date_added')
     chat = chats.get(id=chat_id)
 
     if chat.owner != request.user:
@@ -73,38 +79,14 @@ def reload(request, chat_id, new_chat_query=0):
     return render(request, 'no_patience/index.html', context)
 
 def generate_response(user_question, chat):
-    try:
-        sql_query = generate_sql(user_question)
+    response_text = answer_question(user_question)
 
-        if not is_safe_sql(sql_query):
-            print("Unsafe or invalid query generated.")
-
-        print("\nGenerated SQL:")
-        print(sql_query)
-
-        columns, rows = run_query(sql_query)
-
-        print("\nRaw Result:")
-        print(rows[:5])
-
-        explanation = explain_result(user_question, columns, rows)
-
-        print("Answer:")
-        print(explanation)
-
-        new_bot_message = Message.objects.create(
-                my_chat=chat,
-                text=explanation,
-                sent_by_bot=True
-        )
-        new_bot_message.save()
-
-    except errors.ClientError as e:
-        if "429" in str(e):
-            print("\n[Quota reached. retrying in 30 seconds...]")
-            time.sleep(30)
-        else:
-            raise e
+    new_bot_message = Message.objects.create(
+        my_chat=chat,
+        text=response_text,
+        sent_by_bot=True
+    )
+    new_bot_message.save()
 
 """
 def generate():

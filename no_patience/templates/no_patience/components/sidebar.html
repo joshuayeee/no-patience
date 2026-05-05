@@ -20,20 +20,20 @@
     <div class="sidebar-content">
       <div class="chat-history">
         <div class="history-section">
-          <ul>
-            {% for chat in chats %}
-              <form action="{% url 'no_patience:reload' chat_id=chat.id new_chat_query=0 %}" method="post">
-                {% csrf_token %}
-                <div class="history-label">{{ chat.date_added }}</div>
-                <button class="chat-item active">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                  </svg>
-                  {{ chat.name }}
-                </button>
-              </form>
-            {% endfor %}
-          </ul>
+          {% for chat in chats %}
+            <form action="{% url 'no_patience:reload' chat_id=chat.id new_chat_query=0 %}" method="post">
+              {% csrf_token %}
+              <button class="chat-item active">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+                <div class="chat-item-meta">
+                  <span class="chat-item-name">{{ chat.name }}</span>
+                  <span class="chat-item-date" data-utc="{{ chat.date_added|date:'c' }}">{{ chat.date_added|date:"M j" }}</span>
+                </div>
+              </button>
+            </form>
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -56,5 +56,17 @@
         overlay.classList.toggle('active');
       }
     }
+
+    // convert utc to local for sidebar info
+    document.querySelectorAll('.chat-item-date[data-utc]').forEach(function(el) {
+      var d = new Date(el.dataset.utc);
+      if (!isNaN(d)) {
+        var now = new Date();
+        var isToday = d.toDateString() === now.toDateString();
+        el.textContent = isToday
+          ? d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          : d.toLocaleDateString([], { month: 'short', day: 'numeric' });
+      }
+    });
   </script>
 {% endblock content %}

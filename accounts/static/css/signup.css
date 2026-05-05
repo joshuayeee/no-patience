@@ -12,14 +12,25 @@ body {
 }
 
 .signup-container {
-  background-color: var(--bg-base);
-  border: 2px solid var(--border);
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 40px;
   width: 100%;
   max-width: 420px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
   animation: slideIn 0.3s ease-out;
+}
+
+.signup-logo {
+  display: block;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 20px rgba(105, 105, 255, 0.25);
 }
 
 .form-step {
@@ -51,26 +62,114 @@ body {
 
 .signup-container h2 {
   text-align: center;
-  margin-bottom: 5px;
-  font-size: 28px;
-  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 24px;
+  font-weight: 700;
   color: #ffffff;
   letter-spacing: -0.5px;
 }
 
 .signup-container h3 {
   text-align: center;
-  margin-bottom: 25px;
-  font-size: 18px;
+  margin-bottom: 20px;
+  font-size: 15px;
   font-weight: 400;
-  color: var(--text-secondary);
+  color: var(--text-muted);
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.register-submit {
+  width: 100%;
+  padding: 13px 24px;
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  margin-top: 4px;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.register-submit:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(105, 105, 255, 0.35);
+}
+
+.register-submit:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 label {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: -12px;
+  color: var(--text-secondary);
+  letter-spacing: 0.3px;
+}
+
+.signup-container form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.signup-container form > div label {
+  order: 1;
+}
+
+.signup-container form > div input,
+.signup-container form > div select {
+  order: 2;
+}
+
+.signup-container form > div .helptext {
+  order: 3;
+}
+
+.signup-container form > div ul.errorlist {
+  order: 4;
+}
+
+.helptext {
+  font-size: 12px;
+  color: var(--text-faint);
+  line-height: 1.5;
+  padding: 0 2px;
+}
+
+.helptext ul {
+  margin: 4px 0 0;
+  padding: 10px 14px 10px 28px;
+  list-style: disc;
+  background: rgba(105, 105, 255, 0.07);
+  border: 1px solid rgba(105, 105, 255, 0.18);
+  border-radius: var(--radius-md);
+}
+
+.helptext li {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.errorlist {
+  margin: 0;
+  padding: 8px 12px;
+  list-style: none;
+  background-color: var(--error-bg);
+  border: 1px solid var(--error-border);
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  color: var(--error-text);
 }
 
 input[type="text"],
@@ -78,18 +177,19 @@ input[type="email"],
 input[type="password"] {
   padding: 12px 16px;
   font-size: 14px;
-  border: 2px solid var(--border);
-  border-radius: var(--radius-lg);
-  background-color: var(--bg-elevated);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface);
   color: var(--text-primary);
   outline: none;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
   font-family: inherit;
 }
 
 input:focus {
   border-color: var(--accent);
-  background-color: var(--bg-surface);
+  background-color: var(--bg-base);
+  box-shadow: 0 0 0 3px rgba(105, 105, 255, 0.12);
 }
 
 input::placeholder {
@@ -194,23 +294,25 @@ input::placeholder {
   background-color: var(--accent);
   color: #ffffff;
   border: none;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   font-family: inherit;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
 
 .btn-next:hover,
 #submit-btn:hover {
   background-color: var(--accent-hover);
   transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(105, 105, 255, 0.35);
 }
 
 .btn-next:active,
 #submit-btn:active {
   transform: translateY(0);
+  box-shadow: none;
 }
 
 .login-link {

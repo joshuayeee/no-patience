@@ -10,7 +10,9 @@ class MessageForm(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['text'].widget.attrs.update({'id': 'chatInput',
-                                                 'class': 'chat-input-field',
-                                                 'type': 'text',
-                                                 'placeholder': "Type your message..."})
+        self.fields['text'].widget = forms.Textarea(attrs={
+            'id': 'chatInput',
+            'class': 'chat-input-field',
+            'placeholder': 'Type your message...',
+            'rows': 1,
+        })
