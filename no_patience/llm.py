@@ -9,13 +9,12 @@ import re
 
 # DB connection
 def get_db_connection():
-    return psycopg2.connect(
-        dbname="template1",
-        user="postgres",
-        password=os.getenv("DB_password"),
-        host="localhost",
-        port="5432"
-    )
+    db_url = os.getenv("DATABASE_URL")
+
+    if not db_url:
+        raise ValueError("DATABASE_URL is not set")
+
+    return psycopg2.connect(db_url)
 
 
 # Gemini client
