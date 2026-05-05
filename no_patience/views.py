@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
+from django.db.models import Max
 
 from .models import Chat, Message
 from .forms import MessageForm
@@ -16,12 +17,14 @@ bot_message_text = ""
 
 @login_required
 def index(request):
-    chats = Chat.objects.filter(owner=request.user).order_by("date_added")
+    chats = Chat.objects.filter(owner=request.user).annotate(
+        last_activity=Max('message__date_sent')
+    ).order_by('-last_activity', '-date_added')
     if (chats.count() > 0):
         chat = chats.first()
     else:
-        chat = Chat.objects.create(name=f"New Chat", owner=request.user)
-        chat.save()
+        chat = Chat.objects.create(name="New Chat", owner=request.user)
+        Message.objects.create(my_chat=chat, text="Hello! How can I help you today?", sent_by_bot=True)
 
     if chat.owner != request.user:
         raise Http404
@@ -40,10 +43,12 @@ def index(request):
 def reload(request, chat_id, new_chat_query=0):
     if (new_chat_query == 1):
         new_chat = Chat.objects.create(name=f"New Chat {Chat.objects.filter(owner=request.user).count() + 1}", owner=request.user)
-        new_chat.save()
+        Message.objects.create(my_chat=new_chat, text="Hello! How can I help you today?", sent_by_bot=True)
         return redirect(f"/reload/{new_chat.id}/0")
         
-    chats = Chat.objects.filter(owner=request.user).order_by("date_added")
+    chats = Chat.objects.filter(owner=request.user).annotate(
+        last_activity=Max('message__date_sent')
+    ).order_by('-last_activity', '-date_added')
     chat = chats.get(id=chat_id)
 
     if chat.owner != request.user:
